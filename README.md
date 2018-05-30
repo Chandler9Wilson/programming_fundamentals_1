@@ -2,7 +2,9 @@
 
 ## About
 
-ACC Programming Fundamentals 1 labs and course work
+ACC Programming Fundamentals 1 labs and course work.
+
+I'm using this course's labs/homework to practice TDD a.k.a I'm writing a test before attempting to solve the lab.
 
 ## Quick Start
 
@@ -13,6 +15,9 @@ ACC Programming Fundamentals 1 labs and course work
 ## Run the tests
 
 * To run all the tests, from the project root run:
+  * `$ source env/bin/activate`
   * `$ pytest`
-* To run only one labs test cd to the lab you want to test then run:
+* To run only one labs test run:
+  * `$ source env/bin/activate`
+  * `$ cd to/the/lab` (fill with directory to lab)
   * `$ pytest`
