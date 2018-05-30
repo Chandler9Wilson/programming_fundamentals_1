@@ -1,2 +1,5 @@
 # Require rebuild
 /env
+*.pyc
+# Require retest
+/.pytest_cache
