@@ -21,3 +21,8 @@ I'm using this course's labs/homework to practice TDD a.k.a I'm writing a test b
   * `$ source env/bin/activate`
   * `$ cd to/the/lab` (fill with directory to lab)
   * `$ pytest`
+
+## Resources
+
+* [Pytest documentation](https://docs.pytest.org/en/latest/contents.html#toc)
+* [Python import confustion](http://effbot.org/zone/import-confusion.htm)
