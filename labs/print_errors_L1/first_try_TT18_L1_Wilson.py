@@ -42,7 +42,7 @@ print('In C++, this works. What about python?')
 print('Can I do this??')
 print('If this were easy, anyone could do it!')
 # put in quotes
-print("Quote the raven: 'Nevermore'")
+print("Quote the raven: 'Nevermore' ")
 print("She said: 'Where's my cell phone? I've got to find it!'")
 print("Here are four quote marks: ''''")
 print('How could something so easy be so difficult?')
