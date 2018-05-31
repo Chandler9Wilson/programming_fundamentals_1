@@ -17,7 +17,7 @@ I'm using this course's labs/homework to practice TDD a.k.a I'm writing a test b
 * To run all the tests, from the project root run:
   * `$ source env/bin/activate`
   * `$ pytest`
-* To run only one labs test run (this may break some tests paths):
+* To run only one labs test run (**this may break some tests paths**):
   * `$ source env/bin/activate`
   * `$ cd to/the/lab` (fill with directory to lab)
   * `$ pytest`
