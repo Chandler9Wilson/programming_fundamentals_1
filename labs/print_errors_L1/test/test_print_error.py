@@ -5,7 +5,7 @@ import json
 import pytest
 
 # File to be tested
-from labs.print_errors_L1 import first_try_TT18_L1_Wilson as print_errors
+from labs.print_errors_L1 import TT18_L1_Wilson as print_errors
 
 # File to compare against
 path_to_expected = 'labs/print_errors_L1/test/expected_output.json'
