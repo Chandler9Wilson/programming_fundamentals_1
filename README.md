@@ -4,7 +4,7 @@
 
 ACC Programming Fundamentals 1 labs and course work.
 
-I'm using this course's labs/homework to practice TDD a.k.a I'm writing a test before attempting to solve the lab.
+I'm using this course's labs/homework to practice [TDD](https://en.wikipedia.org/wiki/Test-driven_development) tldr: I'm writing a test before attempting to solve the lab.
 
 ## Quick Start
 
