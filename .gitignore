@@ -2,4 +2,4 @@
 /env
 *.pyc
 # Require retest
-/.pytest_cache
+.pytest_cache
