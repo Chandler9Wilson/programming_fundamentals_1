@@ -14,6 +14,19 @@
 
 # On that last sentance I believe you mean delimiters.
 
+# Feedback to Learner
+# 6/7/18 1: 05 PM
+# L1(5/30): Submitted good and early, well before due date
+# Correct file name
+# Has comment header at top. If not broken, don't fix, some changes were not
+# necessary; All print() statements work; Can put multiple statements on line:
+# print("tik"); print("tak"); print("toe"); "# Paste your output below:";
+# Has long string instead of comment block at bottom.; This alternative
+# method works, but is not a python comment; Epected: Quote the raven:
+# "Nevermore"; Expected: She said: "Where's my cell phone? I've got to find
+# it!". Works OK
+# Has testing at bottom.
+
 print("let's get started")
 print('does this work?')
 print('working or not')
@@ -60,42 +73,41 @@ print('Good-bye, and good luck.')
 # All code has automated tests (written before solving the lab) that can be viewed at:
 # https://github.com/Chandler9Wilson/programming_fundamentals_1
 
-"""
-(env) chandler@chandler-G551JM: ~/ACC/programming_fundamentals_1/labs/print_errors_L1$ python TT18_L1_Wilson.py
-let's get started
-does this work?
-working or not
-how about this?
-is this right?
-Can you see me now?
-how many errors can you find?
-success, I think
-What if I put a period on the end?
-What if I put a semicolon on the end?
-What could possibly be wrong
-this that and the other
-one two three
-tic tak toe
-anybody knows that prnt means print
-I cannot wait any longer
-good grief! This is messed up, too!
-try it this way!!
-Who cares where the verb goes?
-Start End
-give me a shout when it works
-don't mess up on me now!
-Please just do what I say!
-The best is yet to come.
-In C++, this works. What about python?
-Can I do this??
-If this were easy, anyone could do it!
-Quote the raven: 'Nevermore'
-She said: 'Where's my cell phone? I've got to find it!'
-Here are four quote marks: ''''
-How could something so easy be so difficult?
-does it matter uppercase or lowercase?
-this ought to work
-One letter at a time.
-That is about enough of this.
-Good-bye, and good luck.
-"""
+
+# (env) chandler@chandler-G551JM: ~/ACC/programming_fundamentals_1/labs/print_errors_L1$ python TT18_L1_Wilson.py
+# let's get started
+# does this work?
+# working or not
+# how about this?
+# is this right?
+# Can you see me now?
+# how many errors can you find?
+# success, I think
+# What if I put a period on the end?
+# What if I put a semicolon on the end?
+# What could possibly be wrong
+# this that and the other
+# one two three
+# tic tak toe
+# anybody knows that prnt means print
+# I cannot wait any longer
+# good grief! This is messed up, too!
+# try it this way!!
+# Who cares where the verb goes?
+# Start End
+# give me a shout when it works
+# don't mess up on me now!
+# Please just do what I say!
+# The best is yet to come.
+# In C++, this works. What about python?
+# Can I do this??
+# If this were easy, anyone could do it!
+# Quote the raven: 'Nevermore'
+# She said: 'Where's my cell phone? I've got to find it!'
+# Here are four quote marks: ''''
+# How could something so easy be so difficult?
+# does it matter uppercase or lowercase?
+# this ought to work
+# One letter at a time.
+# That is about enough of this.
+# Good-bye, and good luck.
