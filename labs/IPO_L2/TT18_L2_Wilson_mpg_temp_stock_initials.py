@@ -88,11 +88,16 @@ def compute_mpg():
 
 
 def convert_temp():
+    """Convert a celsius temp to fahrenheit"""
     celsius_temperature = input('What is the temperature you would like to ' +
                                 'convert?: ')
+    MELTING_POINT_DIFFERENCE = 32
+    ONE_DEGREE_C_TO_F = 9 / 5
 
     try:
-        fahrenheit_unformated = float(celsius_temperature) * 9 / 5 + 32
+        fahrenheit_unformated = (float(celsius_temperature) *
+                                 ONE_DEGREE_C_TO_F +
+                                 MELTING_POINT_DIFFERENCE)
     except ValueError:
         print('-' * 30)
         print('ERROR: Please enter an integer or float for the temperature')
@@ -109,6 +114,10 @@ def convert_temp():
 
         print('-' * 30)
         print(output_statement)
+
+
+def calculate_profit():
+    return None
 
 
 def horizontal_rule():
