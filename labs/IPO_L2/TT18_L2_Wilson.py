@@ -8,36 +8,41 @@ import time
 
 
 def hello_user():
+    horizontal_rule()
     print('Hello what would you like to do?')
-    print('-' * 30)
+    horizontal_rule()
     print('    1. Compute MPG')
     print('    2. Convert Celsius to Fahrenheit')
     print('    3. Compute Stock Gain or Loss')
     print("    4. Draw Chandler's Initials")
     print('    5. Run all of the above')
     print('    6. Quit')
-    print('-' * 30)
+    horizontal_rule()
     user_input = input('Enter a number (1-6): ')
 
     if user_input is '1':
-        print('-' * 30)
+        horizontal_rule()
         compute_mpg()
         # Delay recursive call so the user has a chance to read output
-        time.sleep(2)
-        print('-' * 30)
-        hello_user()
+        delay(hello_user, 2)
     elif user_input is '2':
-        print('-' * 30)
-        print('You entered 2')
+        horizontal_rule()
+        convert_temp()
+        # Delay recursive call so the user has a chance to read output
+        delay(hello_user, 2)
     elif user_input is '3':
-        print('-' * 30)
+        horizontal_rule
         print('You entered 3')
+        # Delay recursive call so the user has a chance to read output
+        delay(hello_user, 2)
     elif user_input is '4':
         print('-' * 30)
         print('You entered 4')
     elif user_input is '5':
         print('-' * 30)
         print('You entered 5')
+        # Delay recursive call so the user has a chance to read output
+        delay(hello_user, 2)
     elif user_input is '6':
         print('-' * 30)
         print('Goodbye')
@@ -47,9 +52,7 @@ def hello_user():
         print('Please enter a valid integer (1-6)')
         print('-' * 30)
         # Delay recursive call so the user has a chance to read error
-        time.sleep(1)
-
-        hello_user()
+        delay(hello_user, 1.5)
 
 
 def compute_mpg():
@@ -80,12 +83,12 @@ def compute_mpg():
                        'miles to the gallon.']
         output_statement = ' '.join(output_list)
 
-    print('-' * 30)
-    print(output_statement)
+        print('-' * 30)
+        print(output_statement)
 
 
 def convert_temp():
-    celsius_temperature = input('What is the temperature you would like to' +
+    celsius_temperature = input('What is the temperature you would like to ' +
                                 'convert?: ')
 
     try:
@@ -100,8 +103,22 @@ def convert_temp():
         convert_temp()
     else:
         fahrenheit_temp = format(fahrenheit_unformated, '.1f')
-        output_list = [celsius_temperature, 'degrees celsius is approximately'
+        output_list = [celsius_temperature, 'degrees celsius is approximately',
                        'equal to', fahrenheit_temp, 'degrees fahrenheit.']
+        output_statement = ' '.join(output_list)
+
+        print('-' * 30)
+        print(output_statement)
+
+
+def horizontal_rule():
+    print(30 * '-')
+
+
+def delay(callback, seconds):
+    """Delay a function call using time.sleep"""
+    time.sleep(seconds)
+    callback()
 
 
 hello_user()
