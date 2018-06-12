@@ -56,6 +56,10 @@ def compute_mpg():
     """Collects user input and returns mpg based on miles travelled and
     gallons used.
     """
+    intro_statement = 'This part computes gas mileage.'
+
+    print(intro_statement)
+    horizontal_rule()
     vehicle_make = input('What is the cars make?: ')
     vehicle_model = input('What is the cars model?: ')
     miles_traveled = input('How many miles were traveled on this trip?: ')
@@ -84,6 +88,11 @@ def compute_mpg():
 
 def convert_temp():
     """Convert a celsius temp to fahrenheit"""
+    intro_statement = 'This part performs a temperature unit conversion ' + \
+        'from celsius to fahrenheit.'
+
+    print(intro_statement)
+    horizontal_rule()
     celsius_temperature = input('What is the temperature you would like to ' +
                                 'convert?: ')
     MELTING_POINT_DIFFERENCE = 32
@@ -110,6 +119,10 @@ def convert_temp():
 
 
 def calculate_profit():
+    intro_statement = 'This part computes the result of a stock transaction.'
+
+    print(intro_statement)
+    horizontal_rule()
     number_of_shares_purchased = input('How many shares were bought?: ')
     price_per_share_bought = input('How much was paid per share?: ')
     commision_on_buy = input('What was the commision on the purchase?: ')
@@ -148,7 +161,7 @@ def calculate_profit():
                                                  formatted_buy_commision)
         gross_sell_price = sell_price - (sell_price * formatted_sell_commision)
         gross_profit = gross_sell_price - gross_purchase_price
-        formatted_gross_profit = format(gross_profit, '.2f')
+        formatted_gross_profit = format(gross_profit, ',.2f')
 
     if gross_profit < 0:
         horizontal_rule()
