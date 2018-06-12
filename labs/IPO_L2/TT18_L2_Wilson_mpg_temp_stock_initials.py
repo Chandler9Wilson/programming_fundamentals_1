@@ -1,10 +1,12 @@
 # Name: Chandler Wilson
+# Date: 06/12/2018
 # COSC1336, Lab 2, 4 parts:
 #   part 1: Compute MPG
 #   part 2: Convert temperature
 #   part 3: Stock sale
 #   part 4: Draw initials using turtle graphics
 import time
+import turtle
 
 
 def hello_user():
@@ -34,20 +36,30 @@ def hello_user():
         calculate_profit()
         delay(hello_user, 2)
     elif user_input is '4':
-        print('-' * 30)
-        print('You entered 4')
+        horizontal_rule()
+        draw_initials()
+        hello_user()
     elif user_input is '5':
-        print('-' * 30)
-        print('You entered 5')
-        delay(hello_user, 2)
+        horizontal_rule()
+        compute_mpg()
+        horizontal_rule()
+
+        convert_temp()
+        horizontal_rule()
+
+        calculate_profit()
+        horizontal_rule()
+
+        draw_initials()
+        hello_user()
     elif user_input is '6':
-        print('-' * 30)
+        horizontal_rule()
         print('Goodbye')
         exit()
     else:
-        print('-' * 30)
+        horizontal_rule()
         print('Please enter a valid integer (1-6)')
-        print('-' * 30)
+        horizontal_rule()
         # Delay recursive call so the user has a chance to read error
         delay(hello_user, 1.5)
 
@@ -173,6 +185,63 @@ def calculate_profit():
               'on your transaction')
 
 
+def draw_initials():
+    intro_statement = 'This part draws my initials.'
+
+    print(intro_statement)
+    horizontal_rule()
+
+    # Runs turtle again after exitonclick()
+    turtle.TurtleScreen._RUNNING = True
+
+    turtle.pencolor('purple')
+    turtle.pensize(3)
+
+    # Some variables to make sense of stuff
+    y_origin = 0
+    top_of_w = 250
+
+    # Partial circle for C
+    turtle.penup()              # Don't draw while positioning
+    turtle.goto(125, y_origin)  # Move to the bottom of C
+    turtle.pendown()            # Start drawing
+    turtle.circle(125, -180)    # Draw semicircle clockwise with radius 125px
+    turtle.penup()              # Don't draw while positioning
+
+    # Draw far left stem of w
+    turtle.goto(175, top_of_w)  # Move to the top left of W
+    turtle.pendown()            # Start drawing
+    # Space each line of w by 50px on x
+    turtle.goto(225, y_origin)  # Draw diagnal line to bottom left of W
+
+    # Draw middle left stem of w
+    turtle.goto(275, top_of_w)  # Draw diagnal line to middle of W
+
+    # Draw middle right stem of w
+    turtle.goto(325, y_origin)  # Draw diagnal line to bottom right of W
+
+    # Draw far right stem of w
+    turtle.goto(375, top_of_w)  # Draw diagnal line to top right of W
+    turtle.penup()              # Don't draw while positioning
+
+    # Draw 400x400 test box
+    # turtle.goto(0, 0)
+    # turtle.pendown()
+    # turtle.goto(0, 400)
+    # turtle.goto(400, 400)
+    # turtle.goto(400, 0)
+    # turtle.goto(0, 0)
+    # turtle.penup()
+
+    # Draw statement above aprox. middle of initials
+    turtle.goto(100, 300)
+    turtle.write('   CW is for Chandler Wilson, Good-bye!')
+    turtle.hideturtle()    # hide turtle to see initials clearly
+
+    # Exit turtle on User click
+    turtle.exitonclick()
+
+
 # Some utility functions
 
 def horizontal_rule():
@@ -204,3 +273,91 @@ def standardize_percentage_format(percentage):
 
 
 hello_user()
+
+# First test below
+#
+# (env) chandler@chandler-G551JM: ~/ACC/programming_fundamentals_1/labs/IPO_L2$ python TT18_L2_Wilson_mpg_temp_stock_initials.py
+# ------------------------------
+# Hello what would you like to do?
+# ------------------------------
+#     1. Compute MPG
+#     2. Convert Celsius to Fahrenheit
+#     3. Compute Stock Gain or Loss
+#     4. Draw Chandler's Initials
+#     5. Run all of the above
+#     6. Quit
+# ------------------------------
+# Enter a number(1-6): 5
+# ------------------------------
+# This part computes gas mileage.
+# ------------------------------
+# What is the cars make?: Chevy
+# What is the cars model?: Impala
+# How many miles were traveled on this trip?: 150
+# How many gallons were used on this trip?: 5
+# ------------------------------
+# Your Chevy Impala traveled 150 miles on 5 gallons at a rate of 30.0 miles to the gallon.
+# ------------------------------
+# This part performs a temperature unit conversion from celsius to fahrenheit.
+# ------------------------------
+# What is the temperature you would like to convert?: 32
+# ------------------------------
+# 32 degrees celsius is approximately equal to 89.6 degrees fahrenheit.
+# ------------------------------
+# This part computes the result of a stock transaction.
+# ------------------------------
+# How many shares were bought?: 2000
+# How much was paid per share?: $40
+# What was the commision on the purchase?: 3%
+# How many shares were sold?: 2000
+# How much was the stock sold at per share?: $42.75
+# What was the commision on the sale?: 3%
+# ------------------------------
+# You gained $535.00 on your transaction
+# ------------------------------
+# This part draws my initials.
+# ------------------------------
+#
+# Second Test
+#
+# (env) chandler@chandler-G551JM: ~/ACC/programming_fundamentals_1/labs/IPO_L2$ python TT18_L2_Wilson_mpg_temp_stock_initials.py
+# ------------------------------
+# Hello what would you like to do?
+# ------------------------------
+#     1. Compute MPG
+#     2. Convert Celsius to Fahrenheit
+#     3. Compute Stock Gain or Loss
+#     4. Draw Chandler's Initials
+#     5. Run all of the above
+#     6. Quit
+# ------------------------------
+# Enter a number(1-6): 5
+# ------------------------------
+# This part computes gas mileage.
+# ------------------------------
+# What is the cars make?: Chevy
+# What is the cars model?: Traverse
+# How many miles were traveled on this trip?: 250
+# How many gallons were used on this trip?: 17
+# ------------------------------
+# Your Chevy Traverse traveled 250 miles on 17 gallons at a rate of 14.7 miles to the gallon.
+# ------------------------------
+# This part performs a temperature unit conversion from celsius to fahrenheit.
+# ------------------------------
+# What is the temperature you would like to convert?: 45
+# ------------------------------
+# 45 degrees celsius is approximately equal to 113.0 degrees fahrenheit.
+# ------------------------------
+# This part computes the result of a stock transaction.
+# ------------------------------
+# How many shares were bought?: 2000
+# How much was paid per share?: 40.00
+# What was the commision on the purchase?: .03
+# How many shares were sold?: 2000
+# How much was the stock sold at per share?: 42.75
+# What was the commision on the sale?: 3%
+# ------------------------------
+# You gained $535.00 on your transaction
+# ------------------------------
+# This part draws my initials.
+# ------------------------------
