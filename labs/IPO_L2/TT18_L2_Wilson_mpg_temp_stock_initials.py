@@ -28,12 +28,10 @@ def hello_user():
     elif user_input is '2':
         horizontal_rule()
         convert_temp()
-        # Delay recursive call so the user has a chance to read output
         delay(hello_user, 2)
     elif user_input is '3':
         horizontal_rule
-        print('You entered 3')
-        # Delay recursive call so the user has a chance to read output
+        calculate_profit()
         delay(hello_user, 2)
     elif user_input is '4':
         print('-' * 30)
@@ -41,7 +39,6 @@ def hello_user():
     elif user_input is '5':
         print('-' * 30)
         print('You entered 5')
-        # Delay recursive call so the user has a chance to read output
         delay(hello_user, 2)
     elif user_input is '6':
         print('-' * 30)
@@ -72,9 +69,7 @@ def compute_mpg():
               ' gallons used')
         print('-' * 30)
         # Delay recursive call so the user has a chance to read error
-        time.sleep(1)
-
-        compute_mpg()
+        delay(compute_mpg, 1)
     else:
         gas_mileage = format(gas_mileage_unformated, '.1f')
         output_list = ['Your', vehicle_make, vehicle_model, 'traveled',
@@ -103,9 +98,7 @@ def convert_temp():
         print('ERROR: Please enter an integer or float for the temperature')
         print('-' * 30)
         # Delay recursive call so the user has a chance to read error
-        time.sleep(1)
-
-        convert_temp()
+        delay(convert_temp, 1)
     else:
         fahrenheit_temp = format(fahrenheit_unformated, '.1f')
         output_list = [celsius_temperature, 'degrees celsius is approximately',
@@ -117,8 +110,57 @@ def convert_temp():
 
 
 def calculate_profit():
-    return None
+    number_of_shares_purchased = input('How many shares were bought?: ')
+    price_per_share_bought = input('How much was paid per share?: ')
+    commision_on_buy = input('What was the commision on the purchase?: ')
+    number_of_shares_sold = input('How many shares were sold?: ')
+    price_per_share_sold = input('How much was the stock sold at per share?: ')
+    commision_on_sell = input('What was the commision on the sale?: ')
 
+    try:
+        # strip the dollar sign if it exists
+        stripped_price_per_share_bought = strip_dollar(price_per_share_bought)
+        stripped_price_per_share_sold = strip_dollar(price_per_share_sold)
+
+        purchase_price = (float(number_of_shares_purchased) *
+                          float(stripped_price_per_share_bought))
+        sell_price = (float(number_of_shares_sold) *
+                      float(stripped_price_per_share_sold))
+
+        # strip the percentage sign if it exists
+        stripped_buy_commision = strip_percentage(commision_on_buy)
+        stripped_sell_commision = strip_percentage(commision_on_sell)
+
+        # format percentage format to make it easier to work with
+        formatted_buy_commision = standardize_percentage_format(
+            float(stripped_buy_commision))
+        formatted_sell_commision = standardize_percentage_format(
+            float(stripped_sell_commision))
+    except ValueError:
+        print('-' * 30)
+        # TODO This is not a great error message
+        print('ERROR: Please enter an integer or float for all input values')
+        print('-' * 30)
+        # Delay recursive call so the user has a chance to read error
+        delay(calculate_profit, 1)
+    else:
+        gross_purchase_price = purchase_price + (purchase_price *
+                                                 formatted_buy_commision)
+        gross_sell_price = sell_price - (sell_price * formatted_sell_commision)
+        gross_profit = gross_sell_price - gross_purchase_price
+        formatted_gross_profit = format(gross_profit, '.2f')
+
+    if gross_profit < 0:
+        horizontal_rule()
+        print('You lost', '$' + formatted_gross_profit,
+              'on your transaction')
+    elif gross_profit >= 0:
+        horizontal_rule()
+        print('You gained', '$' + formatted_gross_profit,
+              'on your transaction')
+
+
+# Some utility functions
 
 def horizontal_rule():
     print(30 * '-')
@@ -128,6 +170,24 @@ def delay(callback, seconds):
     """Delay a function call using time.sleep"""
     time.sleep(seconds)
     callback()
+
+
+def strip_percentage(to_strip):
+    return to_strip.strip('%')
+
+
+def strip_dollar(to_strip):
+    return to_strip.strip('$')
+
+
+def standardize_percentage_format(percentage):
+    if percentage >= 1:
+        return percentage / 100
+    elif percentage < 1 and percentage > 0:
+        return percentage
+    else:
+        # TODO This could use improvement
+        return percentage
 
 
 hello_user()
