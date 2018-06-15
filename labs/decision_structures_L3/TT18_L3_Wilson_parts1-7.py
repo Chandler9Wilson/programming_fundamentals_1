@@ -31,7 +31,7 @@ def hello_user():
         delay(hello_user, 2)
     elif user_input is '2':
         horizontal_rule()
-        convert_temp()
+        rock_paper_scissor()
         delay(hello_user, 2)
     elif user_input is '3':
         horizontal_rule
@@ -80,38 +80,65 @@ def how_to_dress():
 
     print('Go outside and enjoy the day.')
 
+    def is_it_raining():
+        if raining_outside in ['Y', 'y', 'yes']:
+            print('Bring an umbrella')
+        elif raining_outside in ['N', 'n', 'no']:
+            print("Hopefully we aren't in a drought")
+        else:
+            print('-' * 30)
+            print('ERROR: Please enter y or n')
+            print('-' * 30)
+            # Delay recursive call so the user has a chance to read error
+            delay(is_it_raining, 1)
 
-def is_it_raining():
-    if raining_outside in ['Y', 'y', 'yes']:
-        print('Bring an umbrella')
-    elif raining_outside in ['N', 'n', 'no']:
-        print("Hopefully we aren't in a drought")
-    else:
-        print('-' * 30)
-        print('ERROR: Please enter y or n')
-        print('-' * 30)
-        # Delay recursive call so the user has a chance to read error
-        delay(is_it_raining, 1)
 
+def rock_paper_scissor():
+    def rock_paper_scissor_prompt():
+        player_1 = sanitize_rps_input(input(
+            "What is player one's choice?: r)ock, p)aper, or s)cissors: "))
+        player_2 = sanitize_rps_input(input(
+            "What is player two's choice?: r)ock, p)aper, or s)cissors: "))
 
-def rock_paper_scissors():
-    rock_paper_scissors_table = {
-        'rock': {
-            'scissors': 'beats',
-            'paper': 'loses',
-            'rock': 'tie'
-        },
-        'paper': {
-            'scissors': 'loses',
-            'paper': 'tie',
-            'rock': 'wins'
-        },
-        'scissors': {
-            'scissors': 'tie',
-            'paper': 'beats',
-            'rock': 'loses'
+        result = determine_rps_result(player_1, player_2)
+
+        horizontal_rule()
+        print('Player one', result, 'player two because',
+              player_1, result, player_2)
+
+    def sanitize_rps_input(input):
+        if input in ['r', 'R']:
+            return 'rock'
+        elif input in ['p', 'P']:
+            return 'paper'
+        elif input in ['s', 'S']:
+            return 'scissors'
+        else:
+            # Default to rock if invalid
+            return 'rock'
+
+    def determine_rps_result(player_1, player_2):
+        rock_paper_scissor_table = {
+            'rock': {
+                'scissors': 'beats',
+                'paper': 'loses to',
+                'rock': 'ties'
+            },
+            'paper': {
+                'scissors': 'loses to',
+                'paper': 'ties',
+                'rock': 'wins'
+            },
+            'scissors': {
+                'scissors': 'ties',
+                'paper': 'beats',
+                'rock': 'loses to'
+            }
         }
-    }
+
+        return rock_paper_scissor_table[player_1][player_2]
+
+    rock_paper_scissor_prompt()
 
 
 # Some utility functions
@@ -124,3 +151,6 @@ def delay(callback, seconds):
     """Delay a function call using time.sleep"""
     time.sleep(seconds)
     callback()
+
+
+hello_user()
