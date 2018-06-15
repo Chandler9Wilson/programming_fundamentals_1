@@ -206,3 +206,83 @@ def delay(callback, seconds):
 
 
 hello_user()
+
+# Test below
+#
+# (env) chandler@chandler-G551JM: ~/ACC/programming_fundamentals_1/labs/decision_structures_L3$ python TT18_L3_Wilson_parts1-7.py
+# ------------------------------
+# Hello what would you like to do?
+# ------------------------------
+#     1. Dress based on the weather
+#     2. Run the flowchart
+#     3. Play rock, paper, scissors
+#     4. Choose a season
+#     5. Should you drive?
+#     6. Quit
+# ------------------------------
+# Enter a number(1-6): 1
+# ------------------------------
+# Go to the window
+# What temperature does the thermometer on the window display?: 52
+# Open the door
+# Is it raining outside(y/n)?: n
+# Hopefully we aren't in a drought
+# Go outside and enjoy the day.
+# ------------------------------
+# Hello what would you like to do?
+# ------------------------------
+#     1. Dress based on the weather
+#     2. Run the flowchart
+#     3. Play rock, paper, scissors
+#     4. Choose a season
+#     5. Should you drive?
+#     6. Quit
+# ------------------------------
+# Enter a number(1-6): 2
+# ------------------------------
+# Inspect your wordworking project.
+# Have you stained and sealed your project? (y/n): y
+# Let your project cure overnight.
+# Enjoy your woodworking project.
+# ------------------------------
+# Hello what would you like to do?
+# ------------------------------
+#     1. Dress based on the weather
+#     2. Run the flowchart
+#     3. Play rock, paper, scissors
+#     4. Choose a season
+#     5. Should you drive?
+#     6. Quit
+# ------------------------------
+# Enter a number(1-6): 3
+# What is player one's choice?: r)ock, p)aper, or s)cissors: r
+# What is player two's choice?: r)ock, p)aper, or s)cissors: p
+# - -----------------------------
+# Player one loses to player two because rock loses to paper
+# - -----------------------------
+# Hello what would you like to do?
+# - -----------------------------
+# 1. Dress based on the weather
+# 2. Run the flowchart
+# 3. Play rock, paper, scissors
+# 4. Choose a season
+# 5. Should you drive?
+# 6. Quit
+# - -----------------------------
+# Enter a number(1-6): 4
+# - -----------------------------
+# What is the season? (1-4): 1
+# Winter isnt very cold here in Texas.
+# ------------------------------
+# Hello what would you like to do?
+# - -----------------------------
+# 1. Dress based on the weather
+# 2. Run the flowchart
+# 3. Play rock, paper, scissors
+# 4. Choose a season
+# 5. Should you drive?
+# 6. Quit
+# - -----------------------------
+# Enter a number(1-6): 5
+# - -----------------------------
+# Do not drive home
