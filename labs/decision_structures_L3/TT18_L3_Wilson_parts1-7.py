@@ -39,10 +39,12 @@ def hello_user():
         delay(hello_user, 2)
     elif user_input is '4':
         horizontal_rule()
-        draw_initials()
-        hello_user()
+        season()
+        delay(hello_user, 2)
     elif user_input is '5':
         horizontal_rule()
+        should_you_drive()
+        delay(hello_user, 2)
     elif user_input is '6':
         horizontal_rule()
         print('Goodbye')
@@ -158,7 +160,40 @@ def rock_paper_scissor():
     rock_paper_scissor_prompt()
 
 
+def season():
+    season_input = input('What is the season? (1-4): ')
+
+    if season_input is '1':
+        print('Winter isnt very cold here in Texas.')
+    elif season_input is '2':
+        print("Spring is green if we aren't in a drought.")
+    elif season_input is '3':
+        print('Summer is always hot.')
+    elif season_input is '4':
+        print('Fall is usally hot also, but sometimes it cooler.')
+    else:
+        print("ERROR: Couldn't process your input skipping this section")
+
+
+def should_you_drive():
+    battery_charged = True
+    got_car = True
+    drunk = False
+    gas = 2  # (gallons) # gas currently in the tank of the car
+    distance = 100  # miles from home
+    mpg = 35  # miles per gallon expected to be used driving home
+    nighttime = False
+    headlights_out = True
+
+    if (battery_charged and got_car and not drunk and
+            (gas * mpg) >= distance and not nighttime and not headlights_out):
+        print('Drive home')
+    else:
+        print('Do not drive home')
+
+
 # Some utility functions
+
 
 def horizontal_rule():
     print(30 * '-')
