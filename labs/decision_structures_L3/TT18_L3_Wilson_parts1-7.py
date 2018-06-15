@@ -31,11 +31,11 @@ def hello_user():
         delay(hello_user, 2)
     elif user_input is '2':
         horizontal_rule()
-        rock_paper_scissor()
+        flowchart()
         delay(hello_user, 2)
     elif user_input is '3':
         horizontal_rule
-        calculate_profit()
+        rock_paper_scissor()
         delay(hello_user, 2)
     elif user_input is '4':
         horizontal_rule()
@@ -56,6 +56,18 @@ def hello_user():
 
 
 def how_to_dress():
+    def is_it_raining():
+        if raining_outside in ['Y', 'y', 'yes']:
+            print('Bring an umbrella')
+        elif raining_outside in ['N', 'n', 'no']:
+            print("Hopefully we aren't in a drought")
+        else:
+            print('-' * 30)
+            print('ERROR: Please enter y or n')
+            print('-' * 30)
+            # Delay recursive call so the user has a chance to read error
+            delay(is_it_raining, 1)
+
     print('Go to the window')
     temperature_outside = input(
         'What temperature does the thermometer on the window display?: ')
@@ -80,17 +92,22 @@ def how_to_dress():
 
     print('Go outside and enjoy the day.')
 
-    def is_it_raining():
-        if raining_outside in ['Y', 'y', 'yes']:
-            print('Bring an umbrella')
-        elif raining_outside in ['N', 'n', 'no']:
-            print("Hopefully we aren't in a drought")
-        else:
-            print('-' * 30)
-            print('ERROR: Please enter y or n')
-            print('-' * 30)
-            # Delay recursive call so the user has a chance to read error
-            delay(is_it_raining, 1)
+
+def flowchart():
+    print('Inspect your wordworking project.')
+    stained_and_sealed = input(
+        'Have you stained and sealed your project? (y/n): ')
+
+    if stained_and_sealed in ['Y', 'y', 'yes']:
+        print('Let your project cure overnight.')
+    elif stained_and_sealed in ['N', 'n', 'no']:
+        do_you_want_to = input(
+            'Do you intend to stain and seal your project? (y/n): ')
+
+        if do_you_want_to in ['Y', 'y', 'yes']:
+            print('Stain and seal your project then let it cure overnight')
+
+    print('Enjoy your woodworking project.')
 
 
 def rock_paper_scissor():
