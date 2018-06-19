@@ -68,11 +68,31 @@ def draw_boxes():
             horizontal_rule()
             draw_boxes()
 
-    def draw_box():
-        for width in range(0, box_size):
+    def draw_solid_box(box_size):
+        for length in range(0, box_size):
             print()
-            for length in range(0, box_size):
+            for width in range(0, box_size):
                 print('*', end='')
+
+        # print newline after end of box
+        print()
+
+    def draw_outline_box(box_size):
+        box_range = range(0, box_size)
+
+        for length in box_range:
+            print()
+
+            # Print solid lines for the top and bottom
+            if length is 0 or length is (box_size - 1):
+                for width in box_range:
+                    print('*', end='')
+            else:
+                for width in box_range:
+                    if width is 0 or width is (box_size - 1):
+                        print('*', end='')
+                    else:
+                        print(' ', end='')
 
         # print newline after end of box
         print()
@@ -81,8 +101,12 @@ def draw_boxes():
 
     box_size = convert_to_int(box_size)
 
-    if box_size > 0:
-        draw_box()
+    if box_size > 0 and (box_size % 2) == 0:
+        draw_solid_box(box_size)
+        horizontal_rule()
+        draw_boxes()
+    elif box_size > 0 and (box_size % 2) != 0:
+        draw_outline_box(box_size)
         horizontal_rule()
         draw_boxes()
     elif box_size < 0:
