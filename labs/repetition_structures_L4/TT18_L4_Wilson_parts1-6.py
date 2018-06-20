@@ -1,6 +1,6 @@
 # Name: Chandler Wilson
 # Date: 06/19/2018
-# COSC1336, Lab 4, 9 parts:
+# COSC1336, Lab 4, 7 parts:
 #   part 1: Draw boxes
 #   part 2: Draw triangles
 #   part 3: Austin Temperature Stats
@@ -8,8 +8,6 @@
 #   part 5: Turtle graphics
 #   part 6: Combine into one file (started from part 7 so not applicable)
 #   part 7: User decision structure
-#   part 8: Is it prime optimizations (Use timer to record improvments)
-#   part 9: nth prime number
 
 
 def hello_user():
@@ -19,8 +17,8 @@ def hello_user():
     print('    1. Draw boxes')
     print('    2. Draw triangles')
     print('    3. Compute statistics about Austin temperatures')
-    print('    4. Choose a season')
-    print('    5. Should you drive?')
+    print('    4. Is this number prime?')
+    print('    5. Draw spiral circles')
     print('    6. Quit')
     horizontal_rule()
     user_input = input('Enter a number (1-6): ')
@@ -39,11 +37,11 @@ def hello_user():
         hello_user()
     elif user_input is '4':
         horizontal_rule()
-        season()
+        is_it_prime()
         hello_user()
     elif user_input is '5':
         horizontal_rule()
-        should_you_drive()
+        draw_spiral_circles()
         hello_user()
     elif user_input is '6':
         horizontal_rule()
@@ -148,7 +146,8 @@ def draw_triangles():
 def austin_temperature_statistics():
 
     def temp_input():
-        temp = input('Input a temperature (farenheit) to add to the list: ')
+        temp = input(
+            'Input a temperature (farenheit) to add to the list (q to quit): ')
         return temp
 
     def valid_temp(temp):
@@ -212,6 +211,70 @@ def austin_temperature_statistics():
     input_and_validation()
 
 
+def is_it_prime(number=None):
+
+    def get_prime_number():
+        number = input('Enter a positive integer to see if it is prime ' +
+                       '(0 to quit): ')
+
+        try:
+            number = int(number)
+        except ValueError:
+            horizontal_rule()
+            print('ERROR: Please enter an integer to test')
+            horizontal_rule()
+            is_it_prime()
+        else:
+            if number is 0:
+                return
+
+            unoptimized_prime_test(number)
+
+    def unoptimized_prime_test(number):
+        is_prime = True
+        i = 2
+
+        while i < number:
+            if (number % i) == 0:
+                is_prime = False
+                break
+            else:
+                i += 1
+
+        if is_prime:
+            print(number, 'is prime')
+            get_prime_number()
+        else:
+            print(number, 'is composite')
+            get_prime_number()
+
+    if number:
+        unoptimized_prime_test(number)
+    else:
+        get_prime_number()
+
+
+def draw_spiral_circles():
+    import turtle
+
+    # Runs turtle again after exitonclick()
+    turtle.TurtleScreen._RUNNING = True
+
+    NUM_CIRCLES = 36
+    RADIUS = 100
+    ANGLE = 10
+    ANIMATION_SPEED = 0
+
+    turtle.speed(ANIMATION_SPEED)
+
+    for x in range(NUM_CIRCLES):
+        turtle.circle(RADIUS)
+        turtle.left(ANGLE)
+
+    # Exit turtle on User click
+    turtle.exitonclick()
+
+
 # Some utility functions
 
 
@@ -232,3 +295,126 @@ def horizontal_rule():
 
 
 hello_user()
+
+# Test output below
+# (env) chandler@chandler-G551JM:~/ACC/programming_fundamentals_1/labs/repetition_structures_L4$ python TT18_L4_Wilson_parts1-6.py
+# ------------------------------
+# Hello what would you like to do?
+# ------------------------------
+#     1. Draw boxes
+#     2. Draw triangles
+#     3. Compute statistics about Austin temperatures
+#     4. Is this number prime?
+#     5. Draw spiral circles
+#     6. Quit
+# ------------------------------
+# Enter a number (1-6): 1
+# ------------------------------
+# What box size would you like? (0 to quit): 3
+
+# ***
+# * *
+# ***
+# ------------------------------
+# What box size would you like? (0 to quit): 5
+
+# *****
+# *   *
+# *   *
+# *   *
+# *****
+# ------------------------------
+# What box size would you like? (0 to quit): 4
+
+# ****
+# ****
+# ****
+# ****
+# ------------------------------
+# What box size would you like? (0 to quit): 0
+# ------------------------------
+# Hello what would you like to do?
+# ------------------------------
+#     1. Draw boxes
+#     2. Draw triangles
+#     3. Compute statistics about Austin temperatures
+#     4. Is this number prime?
+#     5. Draw spiral circles
+#     6. Quit
+# ------------------------------
+# Enter a number (1-6): 2
+# ------------------------------
+# What size triangle would you like? (0 to quit): 3
+# ------------------------------
+# *
+# ------------------------------
+# *
+# **
+# ------------------------------
+# *
+# **
+# ***
+# ------------------------------
+# What size triangle would you like? (0 to quit): 0
+# ------------------------------
+# Hello what would you like to do?
+# ------------------------------
+#     1. Draw boxes
+#     2. Draw triangles
+#     3. Compute statistics about Austin temperatures
+#     4. Is this number prime?
+#     5. Draw spiral circles
+#     6. Quit
+# ------------------------------
+# Enter a number (1-6): 3
+# Input a temperature (farenheit) to add to the list (q to quit): 12
+# Input a temperature (farenheit) to add to the list (q to quit): 45
+# Input a temperature (farenheit) to add to the list (q to quit): 78
+# Input a temperature (farenheit) to add to the list (q to quit): 123
+# ------------------------------
+# ERROR: Please enter an integer between -5 and 115
+# ------------------------------
+# Input a temperature (farenheit) to add to the list (q to quit): 456
+# ------------------------------
+# ERROR: Please enter an integer between -5 and 115
+# ------------------------------
+# Input a temperature (farenheit) to add to the list (q to quit): -4
+# Input a temperature (farenheit) to add to the list (q to quit): 0
+# Input a temperature (farenheit) to add to the list (q to quit): 99
+# Input a temperature (farenheit) to add to the list (q to quit): Q
+# ------------------------------
+#     You entered 6 temperatures
+#     The highest temperature you entered was 99 degrees farenheit
+#     The lowest temperature you entered was -4 degrees farenheit
+#     The average temperature was 38.333333333333336 degrees farenheit
+#     There were 3 temperatures below freezing
+#     You entered 6 valid temperatures
+#     You entered 2 invalid temperatures
+# ------------------------------
+# Hello what would you like to do?
+# ------------------------------
+#     1. Draw boxes
+#     2. Draw triangles
+#     3. Compute statistics about Austin temperatures
+#     4. Is this number prime?
+#     5. Draw spiral circles
+#     6. Quit
+# ------------------------------
+# Enter a number (1-6): 4
+# ------------------------------
+# Enter a positive integer to see if it is prime (0 to quit): 9008711
+# 9008711 is composite
+# Enter a positive integer to see if it is prime (0 to quit): 0
+# ------------------------------
+# Hello what would you like to do?
+# ------------------------------
+#     1. Draw boxes
+#     2. Draw triangles
+#     3. Compute statistics about Austin temperatures
+#     4. Is this number prime?
+#     5. Draw spiral circles
+#     6. Quit
+# ------------------------------
+# Enter a number (1-6): 6
+# ------------------------------
+# Goodbye
