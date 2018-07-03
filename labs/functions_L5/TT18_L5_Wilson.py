@@ -2,7 +2,7 @@
 # Date: 07/02/2018
 # COSC1336, Lab 5, 6 parts:
 #   part 0: Write 10 functions in different 'design patterns'
-#   part 1: Tidy up launch option
+#   part 1: Tidy up rocket launch code
 #   part 2: Tip/Tax Table
 #   part 3: Data passing
 #   part 4: Whole is greater than the sum of its parts
@@ -91,8 +91,43 @@ def intro():
     f10_print_constants()
 
 
-def launch():  # Part 1. Get startup code from launch.py (provided)
-    pass
+def launch():
+    """Launch a rocket into space."""
+    def fill_booster(booster_number):
+        print('Fill booster fuel tank ' + str(booster_number) + '.')
+        print('  open valve')
+        print('  pre-freeze tank')
+        print('  attach filler hose')
+        print('  pressurize fuel supply')
+        print('  fill tank')
+        print('  secure and seal shutoff valve')
+
+    def start_engine(engine_number):
+        print('Start engine ' + str(engine_number))
+        print('  ignition sequence start')
+        print('  start ignition spark generator')
+        print('  open fuel valve')
+        print('  verify ignition temperature')
+        print('  stop ignition spark generator')
+        print('  engine ' + str(engine_number) + ' is started')
+
+    input("Press enter to begin the launch sequence...")
+
+    print("This program launches a rocket.")
+    print("start launch sequence")
+
+    fill_booster(1)
+
+    fill_booster(2)
+
+    fill_booster(3)
+
+    start_engine(1)
+
+    start_engine(2)
+
+    print("3, 2, 1, 0, BLASTOFF!!!")
+    print("Thank you. Keep looking up!")
 
 
 def tip_table():  # Part 2. Get startup code from tip_table.py (provided)
