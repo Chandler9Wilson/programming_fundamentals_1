@@ -164,7 +164,42 @@ def tip_table():
 
 
 def scope():  # Part 3. Get startup code from scope.py (provided)
-    pass
+
+    def less_100(number):
+        modified = number - 100
+        print('      in less_100. number = ', number,
+              ', modified = ', modified, sep='')
+
+    def times_ten(number):
+        modified = number * 10
+        print('    at top of times_ten: number = ', number,
+              ', modified = ', modified, sep='')
+
+        less_100(modified)
+
+        print('    at bot of times_ten: number = ', number,
+              ', modified = ', modified, sep='')
+
+    def add_one(number):
+        modified = number + 1
+        print('  at top of add_one: number = ', number,
+              ', modified = ', modified, sep='')
+
+        times_ten(modified)
+
+        print('  at bot of add_one: number = ', number,
+              ', modified = ', modified, sep='')
+
+    # TODO add try catch
+    number = int(input('Please input a number: '))
+
+    print('at top of scope: number = ', number, sep='')
+
+    add_one(number)
+    times_ten(number)
+    less_100(number)
+
+    print('at bot of scope: number = ', number, sep='')
 
 
 def sort():  # Part 4. No startup code provided. See instructions.
