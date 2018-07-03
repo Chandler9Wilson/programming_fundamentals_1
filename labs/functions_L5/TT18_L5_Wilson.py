@@ -1,46 +1,52 @@
 # Name: Chandler Wilson
 # Date: 07/02/2018
-# COSC1336, Lab 5
+# COSC1336, Lab 5, 6 parts:
+#   part 0: Write 10 functions in different 'design patterns'
+#   part 1: Tidy up launch option
+#   part 2: Tip/Tax Table
+#   part 3: Data passing
+#   part 4: Whole is greater than the sum of its parts
+#   part 5: Write ACC with functions and turtle graphics
 import math
 
 
 def intro():
     #  1) define 1 function f1 with: no parameters, no return
-    def f1():
+    def f1_print_pi():
         print(math.pi)
 
     #  2) define 1 function f2 with: 1 parameter, no return.
-    def f2(is_it_even):
+    def f2_check_if_even(is_it_even):
         if is_it_even % 2:
             print('This number is odd')
         else:
             print('This number is even')
 
     #  3) define 1 function f3 with: 2 parameters, no return.
-    def f3(first_int, second_int):
+    def f3_print_added(first_int, second_int):
         added = first_int + second_int
         print(first_int, '+', second_int, '=', added)
 
     #  4) define 1 function f4 with: 2 parameters, 1 return.
-    def f4(first_int, second_int):
+    def f4_return_added(first_int, second_int):
         return first_int + second_int
 
     #  5) define 1 function f5 with: 2 parameters, 2 returns.
-    def f5(add_1, square):
+    def f5_return_add_and_square(add_1, square):
         add_1 += 1
         square *= square
         return add_1, square
 
     #  6) define 1 function f6 with: no parameters, 1 return.
-    def f6():
+    def f6_return_pi():
         return math.pi
 
     #  7) define 1 function f7 with: no parameters, 2 returns.
-    def f7():
+    def f7_return_tau_and_e():
         return (math.pi * 2), math.e
 
     #  8) define 1 function f8 with: 3 keyword parameters, 1 return.
-    def f8(to_add_1, to_add_2, to_add_3):
+    def f8_return_add_three(to_add_1, to_add_2, to_add_3):
         return to_add_1 + to_add_2 + to_add_3
 
     #  9) define 3 functions: f9, f9a, f9b. f9 calls f9a and f9b. All
@@ -51,7 +57,7 @@ def intro():
     def f9b():
         print(math.pi * 2)
 
-    def f9():
+    def f9_print_better_radian():
         f9a()
         f9b()
 
@@ -67,24 +73,22 @@ def intro():
         # Had to update all math.tau because it is only in 3.6+
         print(str(math.pi * 2) + '.')
 
-    def f10():
+    def f10_print_constants():
         print('The math module has 3 interesting constants ', end='')
         f10a()
         f10b()
         f10c()
 
-    f1()
-    f2(6)
-    f3(5, 6)
-    f4(5, 6)
-    f5(11, 25)
-    f6()
-    f7()
-    f8(1, 2, 3)
-    f9()
-    f10()
-
-# For the remaining parts,
+    f1_print_pi()
+    f2_check_if_even(6)
+    f3_print_added(5, 6)
+    f4_return_added(5, 6)
+    f5_return_add_and_square(11, 25)
+    f6_return_pi()
+    f7_return_tau_and_e()
+    f8_return_add_three(1, 2, 3)
+    f9_print_better_radian()
+    f10_print_constants()
 
 
 def launch():  # Part 1. Get startup code from launch.py (provided)
