@@ -130,8 +130,37 @@ def launch():
     print("Thank you. Keep looking up!")
 
 
-def tip_table():  # Part 2. Get startup code from tip_table.py (provided)
-    pass
+def tip_table():
+    """Collect a bill then display a tip table for that bill"""
+    # Enter the bill with tax: $16.24
+    # Total due with 10% tip: $17.74
+    # Total due with 15% tip: $18.49
+    # Total due with 20% tip: $19.24
+    # Total due with 25% tip: $19.99
+    def display_total_due(bill_with_tax, tip_rate, tax_rate):
+        bill_without_tax = bill_with_tax / (1 + tax_rate)
+        tip = bill_without_tax * tip_rate
+        total_due = format((bill_with_tax + tip), ',.2f')
+        formatted_tip = format(tip_rate, '.0%')
+        print('Total due with', str(formatted_tip), 'tip: $' +
+              str(total_due))
+
+    def collect_bill():
+        try:
+            bill_with_tax = float(input('Enter the bill with tax: $'))
+        except ValueError:
+            print('ERROR: Please enter an int or float for the bill')
+            print('-' * 30)
+            collect_bill()
+        else:
+            return bill_with_tax
+
+    bill_with_tax = collect_bill()
+    tip_rate_list = [.1, .15, .20, .25]
+    TAX_RATE = 0.0825
+
+    for tip_rate in tip_rate_list:
+        display_total_due(bill_with_tax, tip_rate, TAX_RATE)
 
 
 def scope():  # Part 3. Get startup code from scope.py (provided)
