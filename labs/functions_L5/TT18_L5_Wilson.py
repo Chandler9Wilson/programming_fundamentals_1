@@ -4,8 +4,8 @@
 #   part 0: Write 10 functions in different 'design patterns'
 #   part 1: Tidy up rocket launch code
 #   part 2: Tip/Tax Table
-#   part 3: Data passing
-#   part 4: Whole is greater than the sum of its parts
+#   part 3: Scope
+#   part 4: Sort
 #   part 5: Write ACC with functions and turtle graphics
 import math
 from random import randint
@@ -324,3 +324,111 @@ def main():
 main()
 
 # Test all options in one, last test run, and paste your output below:
+# (env) chandler@chandler-G551JM:~/ACC/programming_fundamentals_1/labs/functions_L5$ python TT18_L5_Wilson.py
+# Hello. This is cosc1336 lab 5 on functions.
+# Enter choice: 0)intro 1)launch 2)tip table 3)scope 4)sort 5)ACC 6,q)uit? 0
+# 3.141592653589793
+# This number is even
+# 5 + 6 = 11
+# The better radian is 6.283185307179586
+# The math module has 3 interesting constants 3.141592653589793, 2.718281828459045, and 6.283185307179586.
+# Enter choice: 0)intro 1)launch 2)tip table 3)scope 4)sort 5)ACC 6,q)uit? 1
+# Press enter to begin the launch sequence...
+# This program launches a rocket.
+# start launch sequence
+# Fill booster fuel tank 1.
+#   open valve
+#   pre-freeze tank
+#   attach filler hose
+#   pressurize fuel supply
+#   fill tank
+#   secure and seal shutoff valve
+# Fill booster fuel tank 2.
+#   open valve
+#   pre-freeze tank
+#   attach filler hose
+#   pressurize fuel supply
+#   fill tank
+#   secure and seal shutoff valve
+# Fill booster fuel tank 3.
+#   open valve
+#   pre-freeze tank
+#   attach filler hose
+#   pressurize fuel supply
+#   fill tank
+#   secure and seal shutoff valve
+# Start engine 1
+#   ignition sequence start
+#   start ignition spark generator
+#   open fuel valve
+#   verify ignition temperature
+#   stop ignition spark generator
+#   engine 1 is started
+# Start engine 2
+#   ignition sequence start
+#   start ignition spark generator
+#   open fuel valve
+#   verify ignition temperature
+#   stop ignition spark generator
+#   engine 2 is started
+# 3, 2, 1, 0, BLASTOFF!!!
+# Thank you. Keep looking up!
+# Enter choice: 0)intro 1)launch 2)tip table 3)scope 4)sort 5)ACC 6,q)uit? 2
+# Enter the bill with tax: $16.24
+# Total due with 10% tip: $17.74
+# Total due with 15% tip: $18.49
+# Total due with 20% tip: $19.24
+# Total due with 25% tip: $19.99
+# Enter choice: 0)intro 1)launch 2)tip table 3)scope 4)sort 5)ACC 6,q)uit? 3
+# Please input a number: 10
+# at top of scope: number = 10
+#   at top of add_one: number = 10, modified = 11
+#     at top of times_ten: number = 11, modified = 110
+#       in less_100. number = 110, modified = 10
+#     at bot of times_ten: number = 11, modified = 110
+#   at bot of add_one: number = 10, modified = 11
+#     at top of times_ten: number = 10, modified = 100
+#       in less_100. number = 100, modified = 0
+#     at bot of times_ten: number = 10, modified = 100
+#       in less_100. number = 10, modified = -90
+# at bot of scope: number = 10
+# Enter choice: 0)intro 1)launch 2)tip table 3)scope 4)sort 5)ACC 6,q)uit? 3
+# Please input a number: 100
+# at top of scope: number = 100
+#   at top of add_one: number = 100, modified = 101
+#     at top of times_ten: number = 101, modified = 1010
+#       in less_100. number = 1010, modified = 910
+#     at bot of times_ten: number = 101, modified = 1010
+#   at bot of add_one: number = 100, modified = 101
+#     at top of times_ten: number = 100, modified = 1000
+#       in less_100. number = 1000, modified = 900
+#     at bot of times_ten: number = 100, modified = 1000
+#       in less_100. number = 100, modified = 0
+# at bot of scope: number = 100
+# Enter choice: 0)intro 1)launch 2)tip table 3)scope 4)sort 5)ACC 6,q)uit? 3
+# Please input a number: 1000
+# at top of scope: number = 1000
+#   at top of add_one: number = 1000, modified = 1001
+#     at top of times_ten: number = 1001, modified = 10010
+#       in less_100. number = 10010, modified = 9910
+#     at bot of times_ten: number = 1001, modified = 10010
+#   at bot of add_one: number = 1000, modified = 1001
+#     at top of times_ten: number = 1000, modified = 10000
+#       in less_100. number = 10000, modified = 9900
+#     at bot of times_ten: number = 1000, modified = 10000
+#       in less_100. number = 1000, modified = 900
+# at bot of scope: number = 1000
+# Enter choice: 0)intro 1)launch 2)tip table 3)scope 4)sort 5)ACC 6,q)uit? 4
+# 1) random numbers 75, 79, 5 sort to: 5, 75, 79
+# 2) random numbers 5, 69, 78 sort to: 5, 69, 78
+# 3) random numbers 33, 39, 81 sort to: 33, 39, 81
+# 4) random numbers 37, 25, 62 sort to: 25, 37, 62
+# 5) random numbers 60, 68, 67 sort to: 60, 67, 68
+# 6) random numbers 87, 34, 20 sort to: 20, 34, 87
+# 7) random numbers 18, 54, 73 sort to: 18, 54, 73
+# 8) random numbers 43, 16, 74 sort to: 16, 43, 74
+# 9) random numbers 9, 60, 80 sort to: 9, 60, 80
+# 10) random numbers 83, 28, 36 sort to: 28, 36, 83
+# Enter choice: 0)intro 1)launch 2)tip table 3)scope 4)sort 5)ACC 6,q)uit? 6
+
+# Goodbye
