@@ -153,7 +153,7 @@ def tip_table():
         except ValueError:
             print('ERROR: Please enter an int or float for the bill')
             print('-' * 30)
-            collect_bill()
+            return collect_bill()
         else:
             return bill_with_tax
 
@@ -192,8 +192,17 @@ def scope():  # Part 3. Get startup code from scope.py (provided)
         print('  at bot of add_one: number = ', number,
               ', modified = ', modified, sep='')
 
-    # TODO add try catch
-    number = int(input('Please input a number: '))
+    def collect_number():
+        try:
+            number = int(input('Please input a number: '))
+        except ValueError:
+            print('ERROR: Please enter an int')
+            print('-' * 30)
+            return collect_number()
+        else:
+            return number
+
+    number = collect_number()
 
     print('at top of scope: number = ', number, sep='')
 
@@ -247,12 +256,28 @@ def sort():
 def ACC():
 
     def draw_a(x, y, h):
+        half_height = h / 2
+
         turtle.penup()
-        return
+        turtle.goto(x, y)
+        turtle.pendown()
+        # Could remove magic numbers
+        turtle.goto((x + 50), h)
+        turtle.goto((x + 100), y)
+        turtle.penup()
+        # This will fail if h is odd I think?
+        turtle.goto((x + 25), half_height)
+        turtle.pendown()
+        turtle.goto((x + 75), half_height)
 
     def draw_c(x, y, h):
+        radius = h / 2
+
         turtle.penup()
-        return
+        turtle.goto(x, y)
+        turtle.setheading(0)
+        turtle.pendown()
+        turtle.circle(radius, -180)
 
     # Runs turtle again after exitonclick()
     turtle.TurtleScreen._RUNNING = True
@@ -260,9 +285,14 @@ def ACC():
     turtle.pencolor('purple')
     turtle.pensize(3)
 
-    draw_a(0, 0, 300)
-    draw_c(100, 0, 300)
-    draw_c(200, 0, 300)
+    draw_a(0, 0, 200)
+    draw_c(200, 0, 200)
+    draw_c(300, 0, 200)
+
+    turtle.hideturtle()
+
+    # Exit turtle on User click
+    turtle.exitonclick()
 
 
 def main():
