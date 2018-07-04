@@ -8,6 +8,8 @@
 #   part 4: Whole is greater than the sum of its parts
 #   part 5: Write ACC with functions and turtle graphics
 import math
+from random import randint
+import turtle
 
 
 def intro():
@@ -202,12 +204,65 @@ def scope():  # Part 3. Get startup code from scope.py (provided)
     print('at bot of scope: number = ', number, sep='')
 
 
-def sort():  # Part 4. No startup code provided. See instructions.
-    pass
+def sort():
+
+    def more_than(a, b):
+        if a > b:
+            return True
+        else:
+            return False
+
+    def swap(a, b):
+        return b, a
+
+    def sort3(a, b, c):
+        if more_than(a, b):
+            a, b = swap(a, b)
+        if more_than(b, c):
+            b, c = swap(b, c)
+        if more_than(a, b):
+            a, b = swap(a, b)
+
+        return a, b, c
+
+    # Predefined test cases below
+    # print(sort3(1, 2, 3))
+    # print(sort3(3, 2, 1))
+    # print(sort3(1, 3, 2))
+    # print(sort3(2, 3, 1))
+    # print(sort3(2, 1, 3))
+    # print(sort3(1, 1, 1))
+    # print(sort3(1, 2, 2))
+    # print(sort3(2, 1, 1))
+
+    # Random test cases
+    for test in range(1, 11):
+        # TODO could probably not repeat this randint line
+        a, b, c = randint(1, 100), randint(1, 100), randint(1, 100)
+        minn, mid, maxx = sort3(a, b, c)
+        print(str(test) + ') random numbers ' + str(a), b,
+              str(c) + ' sort to: ' + str(minn), mid, maxx, sep=', ')
 
 
-def ACC():  # Part 5. Extra Credit: no startup code provided. See instructions.
-    pass
+def ACC():
+
+    def draw_a(x, y, h):
+        turtle.penup()
+        return
+
+    def draw_c(x, y, h):
+        turtle.penup()
+        return
+
+    # Runs turtle again after exitonclick()
+    turtle.TurtleScreen._RUNNING = True
+
+    turtle.pencolor('purple')
+    turtle.pensize(3)
+
+    draw_a(0, 0, 300)
+    draw_c(100, 0, 300)
+    draw_c(200, 0, 300)
 
 
 def main():
