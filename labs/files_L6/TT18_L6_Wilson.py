@@ -9,6 +9,34 @@
 
 def how_many_primes():
 
+    def prime_test(number):
+        """Tests a number to see if it is prime returns True if it is"""
+        is_prime = True
+        # Create an odd number list
+        list_to_test = [2] + list(range(3, (number - 1), 2))
+
+        # Concatenate 2 to check if even
+        for i in list_to_test:
+            if (number % i) == 0:
+                is_prime = False
+                break
+
+        return is_prime
+
+    def primes_to_nth_prime(n):
+        """Find the primes up to the nth prime and return them as a list."""
+        range_to_test = range(1, 1000000000, 2)
+        prime_list = []
+
+        # TODO I should really cache the results just brute forcing rn
+        for odd_number in range_to_test:
+            if len(prime_list) >= n:
+                break
+            if prime_test(odd_number):
+                prime_list.append(odd_number)
+
+        return prime_list
+
     def prime_table(number_of_primes):
         """Generate a prime table
 
@@ -17,12 +45,19 @@ def how_many_primes():
         Args:
             number_of_primes (int): The number of primes to put into the table.
         """
+        primes_list = primes_to_nth_prime(number_of_primes)
+        file_name = 'TT18_L6_Wilson_' + str(number_of_primes) + 'Primes.txt'
+        outfile = open(file_name, 'w')
+
+        for prime in primes_list:
+            outfile.write(str(prime))
+
+        outfile.close()
 
     def collect_number():
         try:
             number = int(
-                input('How many primes would you like in the table? ' +
-                      '(default 1000): '))
+                input('How many primes would you like in the table?: '))
 
             if 1 < number < 1000000:
                 pass
@@ -35,8 +70,8 @@ def how_many_primes():
         else:
             return number
 
-    number_of_primes = input(
-        'How many primes would you like in the table? (default 1000): ')
+    number_of_primes = collect_number()
+    prime_table(number_of_primes)
 
     return
 
@@ -59,4 +94,5 @@ def choice_list():
     print('\nGoodbye')
 
 
-choice_list()
+if __name__ == "__main__":
+    choice_list()
