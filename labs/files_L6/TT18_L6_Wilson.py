@@ -45,12 +45,44 @@ def how_many_primes():
         Args:
             number_of_primes (int): The number of primes to put into the table.
         """
+
+        def table_heading(number_of_primes, last_prime, outfile):
+            number_of_primes = format(number_of_primes, ',')
+            last_prime = format(last_prime, ',')
+            # Centers within given number of characters
+            # see https://pyformat.info/#string_pad_align
+            first_line = format(
+                'The First ' + number_of_primes + ' Primes\n', '^79')
+
+            outfile.write(first_line)
+            outfile.write('(the ' + number_of_primes +
+                          'th is ' + last_prime + ')\n')
+            outfile.write('\n')
+
+        def table_footer(outfile):
+            centered_end = format('End.', '^79')
+
+            outfile.write('\n')
+            outfile.write(centered_end)
+
         primes_list = primes_to_nth_prime(number_of_primes)
         file_name = 'TT18_L6_Wilson_' + str(number_of_primes) + 'Primes.txt'
         outfile = open(file_name, 'w')
+        counter = 1
+
+        table_heading(number_of_primes, primes_list[-1], outfile)
 
         for prime in primes_list:
-            outfile.write(str(prime))
+            if counter % 10 is 0 and counter is not 0:
+                # This format forces seven digits of padding
+                # see https://pyformat.info/#number
+                outfile.write(format(prime, '7d') + '\n')
+            else:
+                outfile.write(format(prime, '7d') + ', ')
+
+            counter += 1
+
+        table_footer(outfile)
 
         outfile.close()
 
