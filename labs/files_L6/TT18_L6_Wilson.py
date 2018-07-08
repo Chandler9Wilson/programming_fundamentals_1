@@ -7,6 +7,7 @@
 #   part 4: Accept textual numbers for file sum
 
 
+# TODO This would make far more sense as a class
 def how_many_primes():
 
     def prime_test(number):
@@ -105,18 +106,68 @@ def how_many_primes():
     number_of_primes = collect_number()
     prime_table(number_of_primes)
 
-    return
+
+class Census():
+
+    def __init__(self, infile_name):
+        self.infile_name = infile_name
+        self.state_info = {}
+
+        self.encode_file()
+        self.population_stats()
+
+    def encode_file(self):
+        infile = open(self.infile_name)
+
+        with open(self.infile_name) as infile:
+            while True:
+                state = infile.readline().strip('\n')
+
+                if state:
+                    abbreviation = infile.readline().strip('\n')
+                    population = infile.readline().strip('\n')
+
+                    self.state_info[state] = {
+                        'abbreviation': abbreviation,
+                        'population': int(population)
+                    }
+                else:
+                    break
+
+        return self.state_info
+
+    def population_stats(self):
+        # TODO add explanatory comment for this monstrosity
+        sorted_states_list = sorted(
+            self.state_info,
+            key=lambda state: self.state_info[state]['population'])
+        total_population = 0
+
+        for state in self.state_info:
+            total_population += self.state_info[state]['population']
+
+        highest_population = sorted_states_list[-1]
+        lowest_population = sorted_states_list[1]
+        average_population = format(
+            (total_population / len(self.state_info)), ',.0f')
+        texas_population = format(
+            self.state_info['Texas']['population'], ',.0f')
+
+        print(highest_population, 'has the highest population')
+        print(lowest_population, 'has the lowest population')
+        print("The average state's population is", average_population)
+        print('The state of Texas has a population of', texas_population)
 
 
 def choice_list():
     print('Hello. This is COSC1336 lab 6 on files.')
     while True:
         option = input(
-            'Enter choice: 1)Prime Table 2)launch 3)tip table 4,q)uit? ')
+            'Enter choice: 1)Prime Table 2)Census Stats 3)tip table 4,q)uit? ')
         if option is '1':
             how_many_primes()
         elif option is '2':
-            launch()
+            state_census = Census('StateCensus2010.txt')
         elif option is '3':
             tip_table()
         elif option in ['4', 'q', 'Q', 'quit']:
