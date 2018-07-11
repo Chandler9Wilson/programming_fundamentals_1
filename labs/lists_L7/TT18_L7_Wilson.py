@@ -115,12 +115,12 @@ class Names_file():
             print(name_to_find, 'is NOT in the list')
 
     def view(self):
-        counter = 0
+        counter = 1
 
         for name in self.names_list:
-            if counter % 10 is 0 and counter is not 0:
+            if counter % 10 is 0:
                 print(name)
-            elif (counter + 1) == len(self.names_list):
+            elif (counter) == len(self.names_list):
                 print(name)
             else:
                 print(name, end=', ')
