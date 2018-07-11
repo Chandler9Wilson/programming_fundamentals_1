@@ -85,7 +85,21 @@ class Names_file():
         pass
 
     def find(self):
-        pass
+
+        def findName(namelist, target):
+            if target in namelist:
+                return True
+            else:
+                return False
+
+        find_name = input('What name would you like to find?: ')
+
+        found = findName(self.names_list, find_name)
+
+        if found:
+            print(find_name, 'is in the list')
+        else:
+            print(find_name, 'is NOT in the list')
 
     def view(self):
         pass
