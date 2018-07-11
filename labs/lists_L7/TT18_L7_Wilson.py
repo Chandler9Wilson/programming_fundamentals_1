@@ -6,57 +6,106 @@
 #   part 3: Uppercase and lowercase options to menu
 
 
-def collect_filename():
-    file_name = input('Enter the name of the file to be sorted: ')
+class Names_file():
 
-    # Compare the last 4 characters of input to see if .txt
-    if file_name[-4:] == '.txt':
+    def __init__(self, file_name='people.txt'):
+        self.file_name = 'people.txt'
+        self.file_list = []
+
+    def read(self, file_name=None):
+        """Given a file_name attempts to read the file and return a list"""
+        def collect_filename():
+            self.file_name = input('Enter the name of the file to be sorted: ')
+
+            # Compare the last 4 characters of input to see if .txt
+            if self.file_name[-4:] == '.txt':
+                pass
+            else:
+                self.file_name += '.txt'
+
+            return self.file_name
+
+        if file_name:
+            self.file_name = file_name
+        else:
+            self.file_name = collect_filename()
+
+        try:
+            file_object = open(self.file_name)
+        except:
+            print('ERROR: there was an error opening the file. Try again')
+            self.read()
+        else:
+            self.file_list = file_object.read().splitlines()
+            file_object.close()
+
+        return self.file_list
+
+    def sort(self):
+        self.file_list = sorted(self.file_list)
+
+        return self.file_list
+
+    def write(self):
         pass
-    else:
-        file_name += '.txt'
 
-    return file_name
+    def insert(self):
+        pass
 
+    def delete(self):
+        pass
 
-def read(file_name=None):
-    """Given a file_name attempts to read the file and return a list"""
-    if file_name:
-        raise NotImplementedError
-    else:
-        file_name = collect_filename()
+    def find(self):
+        pass
 
-    try:
-        file_object = open(file_name)
-    except:
-        print('ERROR: there was an error opening the file. Try again')
-        read()
-    else:
-        file_list = file_object.read().splitlines()
-        file_object.close()
+    def view(self):
+        pass
 
-    return file_name, file_list
+    def uppercase(self):
+        pass
 
+    def lowercase(self):
+        pass
 
-def sort_write(file_name, file_list):
-    """Given a filename and list sorts the list then writes to
-    file_name_sorted.txt
-    """
-    sorted_list = sorted(file_list)
+    def input_loop(self):
+        print('Hello. This is COSC1336 lab 7 on lists and tuples.')
 
-    sorted_file_name = file_name[:-4] + '_sorted' + file_name[-4:]
+        while True:
+            option = input(
+                'Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, ' +
+                's)ort, v)iew, u)ppercase, l)owercase, q)uit: ')
+            option = option.lower()
+            print(type(option))
 
-    print(file_name, 'opened,', str(len(file_list)),
-          'lines found, sorted and saved to:', sorted_file_name)
+            if option == 'r':
+                self.read()
+            elif option == 'w':
+                self.write()
+            elif option == 'i':
+                self.insert()
+            elif option == 'd':
+                self.delete()
+            elif option == 'f':
+                self.find()
+            elif option == 's':
+                self.sort()
+            elif option == 'v':
+                self.view()
+            elif option == 'u':
+                self.uppercase()
+            elif option == 'l':
+                self.lowercase()
+            elif option == 'q':
+                break
+            else:
+                print('  Invalid option, please try again.')
 
-    file_object = open(sorted_file_name, 'w')
-    # Can't use writelines easily need to add \n back in
-    for line in sorted_list:
-        file_object.write(line + '\n')
+        print('\nGoodbye')
 
 
 def main():
-    file_name, file_list = read()
-    sort_write(file_name, file_list)
+    user_names = Names_file()
+    user_names.input_loop()
 
 
 if __name__ == "__main__":
