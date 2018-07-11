@@ -115,13 +115,39 @@ class Names_file():
             print(name_to_find, 'is NOT in the list')
 
     def view(self):
-        pass
+        counter = 0
+
+        for name in self.names_list:
+            if counter % 10 is 0 and counter is not 0:
+                print(name)
+            elif (counter + 1) == len(self.names_list):
+                print(name)
+            else:
+                print(name, end=', ')
+
+            counter += 1
 
     def uppercase(self):
-        pass
+        new_list = []
+
+        for name in self.names_list:
+            new_name = name.upper()
+            new_list.append(new_name)
+
+        self.names_list = new_list
+
+        print('All names are uppercase')
 
     def lowercase(self):
-        pass
+        new_list = []
+
+        for name in self.names_list:
+            new_name = name.lower()
+            new_list.append(new_name)
+
+        self.names_list = new_list
+
+        print('All names are lowercase')
 
     def input_loop(self):
         print('Hello. This is COSC1336 lab 7 on lists and tuples.')
