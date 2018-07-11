@@ -74,6 +74,7 @@ class Names_file():
                 print('ERROR: Name is already in list')
             else:
                 namelist.append(name)
+                print(name, 'added to the list')
 
             return namelist
 
@@ -84,9 +85,17 @@ class Names_file():
     def delete(self):
 
         def deleteName(namelist, target):
-            pass
+            if target in namelist:
+                namelist.remove(target)
+                print('Removed', target, 'from the list')
+            else:
+                print(target, 'is not in the list')
 
-        pass
+            return namelist
+
+        name_to_delete = input('What name would you like to delete?: ')
+
+        self.names_list = deleteName(self.names_list, name_to_delete)
 
     def find(self):
 
@@ -122,7 +131,6 @@ class Names_file():
                 'Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, ' +
                 's)ort, v)iew, u)ppercase, l)owercase, q)uit: ')
             option = option.lower()
-            print(type(option))
 
             if option == 'r':
                 self.read()
