@@ -194,3 +194,45 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Test output:
+# (env) chandler@chandler-G551JM:~/ACC/programming_fundamentals_1/labs/lists_L7$ python TT18_L7_Wilson.py
+# Hello. This is COSC1336 lab 7 on lists and tuples.
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: r
+# Enter the name of the file to be read: people
+# Read the file
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: v
+# Lu, Joe, Luis, Zelda, Chad, Nguyen, Mindy, Anne, Lee, George
+# Max, Antoine, Terry, Maria, An, Victor, Larry, Steve, Anita, Joline
+# Charles
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: i
+# Enter a name to insert: chandler
+# chandler added to the list
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: s
+# Sorted the list
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: v
+# An, Anita, Anne, Antoine, Chad, Charles, George, Joe, Joline, Larry
+# Lee, Lu, Luis, Maria, Max, Mindy, Nguyen, Steve, Terry, Victor
+# Zelda, chandler
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: d
+# What name would you like to delete?: chandler
+# Removed chandler from the list
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: u
+# All names are uppercase
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: v
+# AN, ANITA, ANNE, ANTOINE, CHAD, CHARLES, GEORGE, JOE, JOLINE, LARRY
+# LEE, LU, LUIS, MARIA, MAX, MINDY, NGUYEN, STEVE, TERRY, VICTOR
+# ZELDA
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: l
+# All names are lowercase
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: v
+# an, anita, anne, antoine, chad, charles, george, joe, joline, larry
+# lee, lu, luis, maria, max, mindy, nguyen, steve, terry, victor
+# zelda
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: w
+# What file would you like to write to (default people_out.txt):
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: w
+# What file would you like to write to (default people_out.txt): people_sorted.txt
+# Enter choice: r)ead, w)rite, i)nsert, d)elete, f)ind, s)ort, v)iew, u)ppercase, l)owercase, q)uit: q
+
+# Goodbye
