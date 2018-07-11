@@ -15,7 +15,7 @@ class Names_file():
     def read(self, file_name=None):
         """Given a file_name attempts to read the file and return a list"""
         def collect_filename():
-            self.file_name = input('Enter the name of the file to be sorted: ')
+            self.file_name = input('Enter the name of the file to be read: ')
 
             # Compare the last 4 characters of input to see if .txt
             if self.file_name[-4:] == '.txt':
@@ -33,16 +33,19 @@ class Names_file():
         try:
             file_object = open(self.file_name)
         except:
-            print('ERROR: there was an error opening the file. Try again')
+            print('ERROR: there was an error opening', file_name, 'Try again')
             self.read()
         else:
             self.names_list = file_object.read().splitlines()
             file_object.close()
 
+            print('Read the file')
+
         return self.names_list
 
     def sort(self):
         self.names_list = sorted(self.names_list)
+        print('Sorted the list')
 
         return self.names_list
 
