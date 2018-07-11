@@ -10,7 +10,7 @@ class Names_file():
 
     def __init__(self, file_name='people.txt'):
         self.file_name = 'people.txt'
-        self.file_list = []
+        self.names_list = []
 
     def read(self, file_name=None):
         """Given a file_name attempts to read the file and return a list"""
@@ -36,21 +36,50 @@ class Names_file():
             print('ERROR: there was an error opening the file. Try again')
             self.read()
         else:
-            self.file_list = file_object.read().splitlines()
+            self.names_list = file_object.read().splitlines()
             file_object.close()
 
-        return self.file_list
+        return self.names_list
 
     def sort(self):
-        self.file_list = sorted(self.file_list)
+        self.names_list = sorted(self.names_list)
 
-        return self.file_list
+        return self.names_list
 
     def write(self):
-        pass
+        default_file_to_write = self.file_name[:-4] + '_out' + \
+            self.file_name[-4:]
+
+        file_to_write = input(
+            'What file would you like to write to (default people_out.txt): ')
+
+        if file_to_write:
+            pass
+        else:
+            file_to_write = default_file_to_write
+
+        try:
+            file_object = open(file_to_write, 'w')
+        except:
+            print('Unable to open', file_to_write)
+        else:
+            # Can't use writelines easily need to add \n back in
+            for name in self.names_list:
+                file_object.write(name + '\n')
 
     def insert(self):
-        pass
+
+        def insertName(namelist, name):
+            if name in namelist:
+                print('ERROR: Name is already in list')
+            else:
+                namelist.append(name)
+
+            return namelist
+
+        new_name = input('Enter a name to insert: ')
+
+        self.names_list = insertName(self.names_list, new_name)
 
     def delete(self):
         pass
