@@ -144,3 +144,23 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Test output
+# (env) chandler@chandler-G551JM:~/ACC/programming_fundamentals_1/exams/second_exam$ python TT18_X2p3_Wilson.py
+# Hello. This is COSC1336 Exam 2
+# This program allows you to generate a file with a given number of random numbers or print a file line by line in the console
+# Enter choice: c)reate file with random numbers; s)how file; q)uit: c
+# What file should hold the random numbers (exclude .txt): /
+# How many random numbers do you want in file random.txt?: 3
+# ERROR: /.txt could not be created
+# What file should hold the random numbers (exclude .txt): random
+# How many random numbers do you want in file random.txt?: 3
+# File random.txt written successfully.
+# Enter choice: c)reate file with random numbers; s)how file; q)uit: s
+# What file would you like to see? (exclude .txt): random
+# 66 is even
+# 285 is odd
+# 125 is odd
+# Enter choice: c)reate file with random numbers; s)how file; q)uit: q
+
+# Goodbye
