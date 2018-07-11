@@ -82,6 +82,10 @@ class Names_file():
         self.names_list = insertName(self.names_list, new_name)
 
     def delete(self):
+
+        def deleteName(namelist, target):
+            pass
+
         pass
 
     def find(self):
@@ -92,14 +96,14 @@ class Names_file():
             else:
                 return False
 
-        find_name = input('What name would you like to find?: ')
+        name_to_find = input('What name would you like to find?: ')
 
-        found = findName(self.names_list, find_name)
+        found = findName(self.names_list, name_to_find)
 
         if found:
-            print(find_name, 'is in the list')
+            print(name_to_find, 'is in the list')
         else:
-            print(find_name, 'is NOT in the list')
+            print(name_to_find, 'is NOT in the list')
 
     def view(self):
         pass
