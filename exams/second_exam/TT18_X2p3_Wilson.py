@@ -8,7 +8,17 @@ from random import randint
 
 
 def call_show_data():
-    raise NotImplementedError
+    file_name = input(
+        'What file would you like to see? (exclude .txt): ')
+
+    file_name += '.txt'
+
+    shown = showData(file_name)
+
+    if shown:
+        return
+    else:
+        call_show_data()
 
 
 # TODO bad funciton name improve
@@ -23,18 +33,19 @@ def call_create_data():
     if completed:
         return
     else:
-        collect_data()
+        call_create_data()
 
 
 def createData(file_name, randCount):
 
     def open_file(file_name):
-        file_opened = False
+        file_opened = None
 
         try:
             file_object = open(file_name, 'w')
         except:
             print('ERROR:', file_name, 'could not be created')
+            file_object = None
         else:
             file_opened = True
 
@@ -52,7 +63,7 @@ def createData(file_name, randCount):
 
         return randCount, count_converted
 
-    file_name = file_name + '.txt'
+    file_name += '.txt'
 
     file_object, file_opened = open_file(file_name)
 
@@ -70,6 +81,8 @@ def createData(file_name, randCount):
 
         file_object.close()
 
+        print('File', file_name, 'written successfully.')
+
         return True
     else:
         return False
@@ -80,19 +93,36 @@ def showData(file_name):
         file_object = open(file_name)
     except:
         print('ERROR:', file_name, 'could not be opened')
+
+        return False
     else:
         file_list = file_object.read().splitlines()
 
         for line in file_list:
-            print(line)
+            if evenodd(int(line)):
+                print(line, 'is even')
+            else:
+                print(line, 'is odd')
 
         file_object.close()
 
         return True
 
+    # This should never be hit but just in case read fails
+    return False
+
+
+def evenodd(number):
+    if number % 2:
+        return False
+    else:
+        return True
+
 
 def main():
     print('Hello. This is COSC1336 Exam 2')
+    print('This program allows you to generate a file with a given number' +
+          ' of random numbers or print a file line by line in the console')
 
     while True:
         option = input(
@@ -101,9 +131,9 @@ def main():
         option = option.lower()
 
         if option == 'c':
-            collect_data()
+            call_create_data()
         elif option == 's':
-            show_data()
+            call_show_data()
         elif option == 'q':
             break
         else:
