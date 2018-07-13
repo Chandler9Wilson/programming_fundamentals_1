@@ -242,3 +242,27 @@ def choice_list():
 
 if __name__ == "__main__":
     choice_list()
+
+# Test output below
+# (env) chandler@chandler-G551JM:~/ACC/programming_fundamentals_1/labs/files_L6$ python TT18_L6_Wilson.py
+# Hello. This is COSC1336 lab 6 on files.
+# Enter choice: 1)Prime Table 2)Census Stats 3)Total of files 4,q)uit? 2
+# California has the highest population
+# Vermont has the lowest population
+# The average state's population is 6,181,560
+# The state of Texas has a population of 25,268,418
+# Enter choice: 1)Prime Table 2)Census Stats 3)Total of files 4,q)uit? 3
+# Enter file name without .txt extension. (enter nothing to quit): data1
+# Processing file: data1.txt
+# The values in the file data1.txt add up to: 6,600.66
+# Enter file name without .txt extension. (enter nothing to quit): data2
+# Processing file: data2.txt
+# Non-numeric data found in file: data2.txt at line: 3 with input: three hundred
+
+# Enter file name without .txt extension. (enter nothing to quit): data3
+# Processing file: data3.txt
+# A read error occured on file: data3.txt
+# Enter file name without .txt extension. (enter nothing to quit):
+# Enter choice: 1)Prime Table 2)Census Stats 3)Total of files 4,q)uit? 4
+
+# Goodbye
