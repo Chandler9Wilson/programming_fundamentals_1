@@ -165,26 +165,74 @@ class Census():
         print('The state of Texas has a population of', texas_population)
 
 
-def file_total(filename=None):
-    """Add all numbers in a txt file"""
-    if filename:
-        pass
-    else:
-        raise NotImplementedError
+class Numbers_file():
+
+    def __init__(self, file_name):
+        self.file_total = 0.0
+        self.file_name = file_name
+
+        print('Processing file:', file_name)
+
+        if self.process_file():
+            print('The values in the file', self.file_name,
+                  'add up to:', format(self.file_total, ',.2f'))
+
+    def process_file(self):
+        try:
+            infile = open(self.file_name)
+        except:
+            print('A read error occured on file:', self.file_name)
+
+            return False
+        else:
+            for line_number, line in enumerate(infile):
+                try:
+                    amount = float(line)
+                except:
+                    print('Non-numeric data found in file:',
+                          self.file_name, 'at line:', line_number + 1,
+                          'with input:', line)
+
+                    return False
+                else:
+                    self.file_total += amount
+
+        infile.close()
+
+        return True
+
+    @classmethod
+    def from_input(cls):
+        """Prompts the user for the info needed to create class instances"""
+        class_instances = []
+
+        while True:
+            file_name = input(
+                'Enter file name without .txt extension. (enter nothing ' +
+                'to quit): ')
+
+            if file_name:
+                file_name += '.txt'
+                class_instances.append(cls(file_name))
+            else:
+                break
+
+        return class_instances
 
 
 def choice_list():
     print('Hello. This is COSC1336 lab 6 on files.')
     while True:
         option = input(
-            'Enter choice: 1)Prime Table 2)Census Stats 3)Total of a file 4,q)uit? ')
+            'Enter choice: 1)Prime Table 2)Census Stats 3)Total of ' +
+            'files 4,q)uit? ')
         if option is '1':
             how_many_primes()
         elif option is '2':
             # Creates a throw away instance of the Census class
             Census('StateCensus2010.txt')
         elif option is '3':
-            file_total()
+            number_files = Numbers_file.from_input()
         elif option in ['4', 'q', 'Q', 'quit']:
             break
         else:
