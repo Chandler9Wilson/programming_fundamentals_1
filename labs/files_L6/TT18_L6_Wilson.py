@@ -7,7 +7,7 @@
 #   part 4: Accept textual numbers for file sum
 
 
-# TODO This would make far more sense as a class
+# TODO This would make far more sense as a class (esp in terms of testability)
 def how_many_primes():
 
     def prime_test(number):
@@ -89,9 +89,15 @@ def how_many_primes():
 
     def collect_number():
         try:
-            number = int(
-                input('How many primes would you like in the table?: '))
+            number = input('How many primes would you like in the table? ' +
+                           '(enter for 1000): ')
 
+            if not number:
+                number = 1000
+            else:
+                number = int(number)
+
+            # Check the range of the number
             if 1 < number < 1000000:
                 pass
             else:
@@ -137,7 +143,7 @@ class Census():
         return self.state_info
 
     def population_stats(self):
-        # TODO add explanatory comment for this monstrosity
+        # This sorts by population retrieving the population with the lambda
         sorted_states_list = sorted(
             self.state_info,
             key=lambda state: self.state_info[state]['population'])
@@ -159,17 +165,26 @@ class Census():
         print('The state of Texas has a population of', texas_population)
 
 
+def file_total(filename=None):
+    """Add all numbers in a txt file"""
+    if filename:
+        pass
+    else:
+        raise NotImplementedError
+
+
 def choice_list():
     print('Hello. This is COSC1336 lab 6 on files.')
     while True:
         option = input(
-            'Enter choice: 1)Prime Table 2)Census Stats 3)tip table 4,q)uit? ')
+            'Enter choice: 1)Prime Table 2)Census Stats 3)Total of a file 4,q)uit? ')
         if option is '1':
             how_many_primes()
         elif option is '2':
-            state_census = Census('StateCensus2010.txt')
+            # Creates a throw away instance of the Census class
+            Census('StateCensus2010.txt')
         elif option is '3':
-            tip_table()
+            file_total()
         elif option in ['4', 'q', 'Q', 'quit']:
             break
         else:
