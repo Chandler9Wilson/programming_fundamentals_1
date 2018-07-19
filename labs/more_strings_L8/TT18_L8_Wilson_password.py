@@ -5,12 +5,15 @@
 #   part 2: Validate a password
 #   part 3: Test part 2 on user input
 #   part 4: Generate a valid password (extra credit)
+import string
+import random
 
 
 class Password():
 
     def __init__(self, password=''):
         self.password = password
+        self.attempts = 0
 
     def meets_requirements(self):
         # This IPO isn't precisly as instructed because it takes the
@@ -22,6 +25,74 @@ class Password():
             return True
         else:
             return False
+
+    def input_loop(self):
+        def entrance_message():
+            print('Hello!\n')
+            self.help()
+
+        def exit_message():
+            print('Your password passed validation.')
+            print('You took a total of', self.attempts, 'attempts')
+            print('\nGoodbye')
+
+        counter = 0
+        entrance_message()
+
+        while not self.meets_requirements() and counter < 3:
+            if counter > 0:
+                self.help()
+
+                print('-' * 30)
+                print('Password did not pass validation please try again')
+                print('-' * 30)
+
+            # self._debug_meets_requirements()
+            self.password = input('Please enter a password: ')
+
+            counter += 1
+            self.attempts += 1
+
+        if counter >= 3 and not self.meets_requirements():
+            self.password = self.generate_password()
+
+            print('Generated a password for you it is', self.password)
+            exit_message()
+        else:
+            exit_message()
+
+    def help(self):
+        print('To validate a password must meet all the following:')
+        print('     * At least 8 characters long')
+        print('     * No spaces or whitespace (No space, tab, newline)')
+        print('     * At least 1 digit (0 to 9)')
+        print('     * At least 1 punctuation character')
+        print('     * At least 2 uppercase letters (A .. Z)')
+        print('     * At least 2 lowercase letters (a .. z)')
+
+    def generate_password(self):
+        """This generates a pseudo random string for a password this is
+        not secure at all...
+        """
+        unshuffled_list = []
+
+        digits = string.digits
+        lower = string.ascii_lowercase
+        upper = string.ascii_uppercase
+        punctuation = string.punctuation
+
+        # random.choices is a much better choice here but not
+        # available till 3.6
+        unshuffled_list += random.sample(digits, k=random.randint(1, 7))
+        unshuffled_list += random.sample(lower, k=random.randint(5, 15))
+        unshuffled_list += random.sample(upper, k=random.randint(2, 7))
+        unshuffled_list += random.sample(punctuation, k=random.randint(1, 7))
+
+        # This shuffles the list
+        shuffled_password = random.sample(unshuffled_list,
+                                          k=len(unshuffled_list))
+
+        return ''.join(shuffled_password)
 
     def _meets_len_requirement(self):
         length_requirement = 8
@@ -54,8 +125,6 @@ class Password():
 
     def _has_punctuation(self):
         # Used to get all to punctuation char
-        import string
-
         for char in self.password:
             if char in string.punctuation:
                 return True
@@ -85,13 +154,6 @@ class Password():
             return True
         else:
             return False
-
-    def input_loop(self):
-        counter = 0
-
-        while not self.meets_requirements() and counter < 3:
-            self._debug_meets_requirements()
-            self.password = input('Please enter a password: ')
 
     def _debug_meets_requirements(self):
         print('len requiremnt =', self._meets_len_requirement())
