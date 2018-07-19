@@ -175,3 +175,58 @@ user_password = blank_password.input_loop()
 # no_punct_password = Password(password='asdfsfasdf123445')
 # no_upper_password = Password(password='asdfasdfalkfjalk12233**($@')
 # no_lower_password = Password(password='HALEKFJALKSDFADF;SLKJ;LADSKJF')
+
+# Test output below:
+# (env) chandler@chandler-G551JM:~/ACC/programming_fundamentals_1/labs/more_strings_L8$ python TT18_L8_Wilson_password.py
+# Hello!
+
+# To validate a password must meet all the following:
+#      * At least 8 characters long
+#      * No spaces or whitespace (No space, tab, newline)
+#      * At least 1 digit (0 to 9)
+#      * At least 1 punctuation character
+#      * At least 2 uppercase letters (A .. Z)
+#      * At least 2 lowercase letters (a .. z)
+# Please enter a password: ab3456789?AA
+# Your password passed validation.
+# You took a total of 1 attempts
+
+# Goodbye
+# (env) chandler@chandler-G551JM:~/ACC/programming_fundamentals_1/labs/more_strings_L8$ python TT18_L8_Wilson_password.py
+# Hello!
+
+# To validate a password must meet all the following:
+#      * At least 8 characters long
+#      * No spaces or whitespace (No space, tab, newline)
+#      * At least 1 digit (0 to 9)
+#      * At least 1 punctuation character
+#      * At least 2 uppercase letters (A .. Z)
+#      * At least 2 lowercase letters (a .. z)
+# Please enter a password: asdf
+# To validate a password must meet all the following:
+#      * At least 8 characters long
+#      * No spaces or whitespace (No space, tab, newline)
+#      * At least 1 digit (0 to 9)
+#      * At least 1 punctuation character
+#      * At least 2 uppercase letters (A .. Z)
+#      * At least 2 lowercase letters (a .. z)
+# ------------------------------
+# Password did not pass validation please try again
+# ------------------------------
+# Please enter a password: asdf
+# To validate a password must meet all the following:
+#      * At least 8 characters long
+#      * No spaces or whitespace (No space, tab, newline)
+#      * At least 1 digit (0 to 9)
+#      * At least 1 punctuation character
+#      * At least 2 uppercase letters (A .. Z)
+#      * At least 2 lowercase letters (a .. z)
+# ------------------------------
+# Password did not pass validation please try again
+# ------------------------------
+# Please enter a password: asdf
+# Generated a password for you it is uIMvt8p[1Fj
+# Your password passed validation.
+# You took a total of 3 attempts
+
+# Goodbye
