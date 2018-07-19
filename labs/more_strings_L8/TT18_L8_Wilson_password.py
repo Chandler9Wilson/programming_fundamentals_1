@@ -13,6 +13,9 @@ class Password():
         self.password = password
 
     def meets_requirements(self):
+        # This IPO isn't precisly as instructed because it takes the
+        # self obj instead of one str but the initialization of a Password
+        # instance only accepts one string so sort of meets I guess?
         if self._meets_len_requirement() and self._has_no_whitespace() and \
                 self._has_digit() and self._has_punctuation() and \
                 self._has_two_upper() and self._has_two_lower():
@@ -82,6 +85,25 @@ class Password():
             return True
         else:
             return False
+
+    def input_loop(self):
+        counter = 0
+
+        while not self.meets_requirements() and counter < 3:
+            self._debug_meets_requirements()
+            self.password = input('Please enter a password: ')
+
+    def _debug_meets_requirements(self):
+        print('len requiremnt =', self._meets_len_requirement())
+        print('has whitespace =', self._has_no_whitespace())
+        print('has digit =', self._has_digit())
+        print('has punctuation =', self._has_punctuation())
+        print('has two upper =', self._has_two_upper())
+        print('has two lower =', self._has_two_lower())
+
+
+blank_password = Password()
+user_password = blank_password.input_loop()
 
 
 # Test cases:
