@@ -1,3 +1,6 @@
+# Name: Chandler Wilson
+# Date: 07/18/2018
+# COSC1336, Lab 8, shell output
 >>> print('hello world
   File "<stdin>", line 1
     print('hello world
