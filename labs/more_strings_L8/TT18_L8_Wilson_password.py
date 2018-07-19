@@ -12,8 +12,6 @@ class Password():
     def __init__(self, password=''):
         self.password = password
 
-        self.meets_requirements()
-
     def meets_requirements(self):
         if self._meets_len_requirement() and self._has_no_whitespace() and \
                 self._has_digit() and self._has_punctuation() and \
