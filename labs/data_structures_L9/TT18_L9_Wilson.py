@@ -4,6 +4,7 @@
 #   part 1: Find state by abbreviation
 #   part 2: Set manipulation
 #   part 3: Using Pickle
+import string
 
 
 class Abbreviations():
@@ -39,7 +40,15 @@ class Abbreviations():
             return 'Not Found'
 
     def lookup_loop(self):
-        print(self.abbrev_dict)
+        while True:
+            option = input(
+                'Enter an abbreviation to lookup (q to quit): ')
+            if option in ['q', 'Q', 'quit']:
+                break
+            else:
+                result = self.lookup(option)
+
+                print(result)
 
 
 def main():
