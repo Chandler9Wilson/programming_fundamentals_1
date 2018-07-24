@@ -110,3 +110,35 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Test output:
+# (env) chandler@chandler-G551JM:~/ACC/programming_fundamentals_1/labs/data_structures_L9$ python TT18_L9_Wilson.py
+# Hello. This is COSC1336 lab 9 on data structures.
+# Enter choice: 1)State Abbreviation 2)Derived Sets 3)Pickle 4,q)uit? 1
+# Enter an abbreviation to lookup (q to quit): t
+# Not Found
+# Enter an abbreviation to lookup (q to quit): tx
+# Texas
+# Enter an abbreviation to lookup (q to quit): Tx
+# Texas
+# Enter an abbreviation to lookup (q to quit): tX
+# Texas
+# Enter an abbreviation to lookup (q to quit): wh
+# Not Found
+# Enter an abbreviation to lookup (q to quit): wi
+# Wisconsin
+# Enter an abbreviation to lookup (q to quit): wy
+# Wyoming
+# Enter an abbreviation to lookup (q to quit): q
+# Enter choice: 1)State Abbreviation 2)Derived Sets 3)Pickle 4,q)uit? 2
+# Consonants: {'g', 'j', 'd', 'z', 'p', 'l', 'v', 'c', 'm', 'q', 'k', 'h', 'f', 'n', 'r', 's', 'w', 'y', 't', 'b', 'x'}
+# Odd digits: {'9', '1', '7', '5', '3'}
+# Consonants in advice: {'n', 'r', 's', 'd', 'y', 't', 'l', 'h', 'k'}
+# Odd digits in address: {'9', '1'}
+# Punctuation in address: {']', '(', ',', '[', ')', '.'}
+# Nonmatching punctuation in address: {',', '.'}
+# Enter choice: 1)State Abbreviation 2)Derived Sets 3)Pickle 4,q)uit? 3
+# The mists of time run thick and thin.
+# Enter choice: 1)State Abbreviation 2)Derived Sets 3)Pickle 4,q)uit? q
+
+# Goodbye
