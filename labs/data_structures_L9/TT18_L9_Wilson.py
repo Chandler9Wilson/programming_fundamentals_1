@@ -84,8 +84,17 @@ def sets():
 
 
 def read_pickle(file_to_read):
-    with open(file_to_read, 'rb') as infile:
-        print(pickle.Unpickler(infile).load())
+    end_of_file = False
+
+    # This will break if given a nonexistant file
+    infile = open(file_to_read, 'rb')
+
+    while not end_of_file:
+        try:
+            data = pickle.load(infile)
+            print(data)
+        except EOFError:
+            end_of_file = True
 
 
 def main():
