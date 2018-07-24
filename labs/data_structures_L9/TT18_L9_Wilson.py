@@ -51,6 +51,37 @@ class Abbreviations():
                 print(result)
 
 
+def sets():
+    # Startup sets
+    alpha = set(string.ascii_lowercase)
+    digit = set(string.digits)
+    even = set('02468')
+    vowel = set('aeiou')
+    punct = set(string.punctuation)
+    match = set('{}[]()<>')
+    advice = 'treat others kindly'
+    address = '11928 stonehollow dr., austin, tx (us [of] a)'
+
+    advice_set = set(advice)
+    address_set = set(address)
+
+    # Generated sets
+    consonants = alpha.difference(vowel)
+    odd = digit.difference(even)
+    advice_consonant = advice_set.intersection(alpha).difference(vowel)
+    odd_address = address_set.intersection(digit).difference(even)
+    punct_address = address_set.intersection(punct)
+    no_match = address_set.intersection(punct).difference(match)
+
+    # Display generated sets
+    print('Consonants:', consonants)
+    print('Odd digits:', odd)
+    print('Consonants in advice:', advice_consonant)
+    print('Odd digits in address:', odd_address)
+    print('Punctuation in address:', punct_address)
+    print('Nonmatching punctuation in address:', no_match)
+
+
 def main():
     print('Hello. This is COSC1336 lab 9 on data structures.')
     while True:
@@ -61,7 +92,7 @@ def main():
             state_abbrev = Abbreviations('StateCensus2010.txt')
             state_abbrev.lookup_loop()
         elif option is '2':
-            pass
+            sets()
         elif option is '3':
             pass
         elif option in ['4', 'q', 'Q', 'quit']:
