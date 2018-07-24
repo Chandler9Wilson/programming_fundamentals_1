@@ -5,6 +5,7 @@
 #   part 2: Set manipulation
 #   part 3: Using Pickle
 import string
+import pickle
 
 
 class Abbreviations():
@@ -82,6 +83,11 @@ def sets():
     print('Nonmatching punctuation in address:', no_match)
 
 
+def read_pickle(file_to_read):
+    with open(file_to_read, 'rb') as infile:
+        print(pickle.Unpickler(infile).load())
+
+
 def main():
     print('Hello. This is COSC1336 lab 9 on data structures.')
     while True:
@@ -94,7 +100,7 @@ def main():
         elif option is '2':
             sets()
         elif option is '3':
-            pass
+            read_pickle('secret.dat')
         elif option in ['4', 'q', 'Q', 'quit']:
             break
         else:
