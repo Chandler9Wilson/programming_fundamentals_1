@@ -87,7 +87,12 @@ def read_pickle(file_to_read):
     end_of_file = False
 
     # This will break if given a nonexistant file
-    infile = open(file_to_read, 'rb')
+    try:
+        infile = open(file_to_read, 'rb')
+    except:
+        print('Problem opening file')
+
+        return
 
     while not end_of_file:
         try:
