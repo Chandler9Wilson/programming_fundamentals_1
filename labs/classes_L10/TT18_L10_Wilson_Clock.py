@@ -14,18 +14,25 @@ class Clock():
         self.setSecond(second)
 
     def __str__(self):
-        return 'hour: %s, minute: %s, second: %s' % (
-            self.__hour, self.__minute, self.__second)
 
-        if self.__hour == 0:
-            return '11:59 AM'
-        elif self.__hour >= 12:
-            return 'PM'
-        elif self.__hour <= 12:
-            return 'AM'
+        if self.__hour >= 12:
+            am_or_pm = 'PM'
+            formatted_hour = self.__hour - 12
+
+            if formatted_hour == 0:
+                formatted_hour = 12
+        elif self.__hour < 12:
+            am_or_pm = 'AM'
+            formatted_hour = self.__hour
+
+            if formatted_hour == 0:
+                formatted_hour = 12
+
+        return '%s:%s:%s %s' % (
+            formatted_hour, self.__minute, self.__second, am_or_pm)
 
     def setHour(self, hour):
-        if type(hour) is int and 24 > hour > 0:
+        if type(hour) is int and 24 > hour >= 0:
             self.__hour = hour
         else:
             self.__hour = 0
@@ -34,7 +41,7 @@ class Clock():
         return self.__hour
 
     def setMinute(self, minute):
-        if type(minute) is int and 59 > minute > 0:
+        if type(minute) is int and 60 > minute >= 0:
             self.__minute = minute
         else:
             self.__minute = 0
@@ -43,7 +50,7 @@ class Clock():
         return self.__minute
 
     def setSecond(self, second):
-        if type(second) is int and 59 > second > 0:
+        if type(second) is int and 60 > second >= 0:
             self.__second = second
         else:
             self.__second = 0
@@ -60,3 +67,11 @@ mixedTypes = Clock(12, 0, 'c')
 print(mixedTypes)
 missingArgs = Clock(12)
 print(missingArgs)
+lowerAM = Clock(0, 0, 0)
+print(lowerAM)
+upperAM = Clock(11, 59, 59)
+print(upperAM)
+lowerPM = Clock(12, 0, 0)
+print(lowerPM)
+upperPM = Clock(23, 59, 59)
+print(upperPM)
