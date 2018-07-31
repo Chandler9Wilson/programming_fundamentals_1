@@ -14,6 +14,9 @@ class Clock():
         self.setSecond(second)
 
     def __str__(self):
+        return 'hour: %s, minute: %s, second: %s' % (
+            self.__hour, self.__minute, self.__second)
+
         if self.__hour == 0:
             return '11:59 AM'
         elif self.__hour >= 12:
@@ -22,22 +25,36 @@ class Clock():
             return 'AM'
 
     def setHour(self, hour):
-        if 24 > hour > 0:
+        if type(hour) is int and 24 > hour > 0:
             self.__hour = hour
+        else:
+            self.__hour = 0
 
     def getHour(self):
         return self.__hour
 
     def setMinute(self, minute):
-        if 59 > minute > 0:
+        if type(minute) is int and 59 > minute > 0:
             self.__minute = minute
+        else:
+            self.__minute = 0
 
     def getMinute(self):
         return self.__minute
 
     def setSecond(self, second):
-        if 59 > second > 0:
+        if type(second) is int and 59 > second > 0:
             self.__second = second
+        else:
+            self.__second = 0
 
     def getSecond(self):
         return self.__second
+
+
+wrongType = Clock('a', 'b', 'c')
+print(wrongType)
+shouldWork = Clock(2, 30, 50)
+print(shouldWork)
+mixedTypes = Clock(12, 0, 'c')
+print(mixedTypes)
