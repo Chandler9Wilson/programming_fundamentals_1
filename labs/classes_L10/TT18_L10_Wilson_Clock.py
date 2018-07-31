@@ -58,20 +58,29 @@ class Clock():
     def getSecond(self):
         return self.__second
 
-
-wrongType = Clock('a', 'b', 'c')
-print(wrongType)
-shouldWork = Clock(2, 30, 50)
-print(shouldWork)
-mixedTypes = Clock(12, 0, 'c')
-print(mixedTypes)
-missingArgs = Clock(12)
-print(missingArgs)
-lowerAM = Clock(0, 0, 0)
-print(lowerAM)
-upperAM = Clock(11, 59, 59)
-print(upperAM)
-lowerPM = Clock(12, 0, 0)
-print(lowerPM)
-upperPM = Clock(23, 59, 59)
-print(upperPM)
+# Test cases then output from test cases:
+# wrongType = Clock('a', 'b', 'c')
+# print('wrongType =', wrongType)
+# shouldWork = Clock(2, 30, 50)
+# print('shouldWork =', shouldWork)
+# mixedTypes = Clock(12, 0, 'c')
+# print('mixedTypes =', mixedTypes)
+# missingArgs = Clock(12)
+# print('missingArgs =', missingArgs)
+# lowerAM = Clock(0, 0, 0)
+# print('lowerAM =', lowerAM)
+# upperAM = Clock(11, 59, 59)
+# print('upperAM =', upperAM)
+# lowerPM = Clock(12, 0, 0)
+# print('lowerPM =', lowerPM)
+# upperPM = Clock(23, 59, 59)
+# print('upperPM =', upperPM)
+# Output:
+# wrongType = 12:0:0 AM
+# shouldWork = 2:30:50 AM
+# mixedTypes = 12:0:0 PM
+# missingArgs = 12:0:0 PM
+# lowerAM = 12:0:0 AM
+# upperAM = 11:59:59 AM
+# lowerPM = 12:0:0 PM
+# upperPM = 11:59:59 PM
