@@ -7,7 +7,7 @@
 
 class Clock():
 
-    def __init__(self, hour, minute, second):
+    def __init__(self, hour=0, minute=0, second=0):
 
         self.setHour(hour)
         self.setMinute(minute)
@@ -58,3 +58,5 @@ shouldWork = Clock(2, 30, 50)
 print(shouldWork)
 mixedTypes = Clock(12, 0, 'c')
 print(mixedTypes)
+missingArgs = Clock(12)
+print(missingArgs)
